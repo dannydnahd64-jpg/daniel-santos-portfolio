@@ -24,8 +24,8 @@ export default function DnaLattice() {
     let height = 0;
     let animationFrameId: number;
 
-    let brandPrimaryRGB = "0, 223, 162";
-    let brandSecondaryRGB = "0, 136, 255";
+    let brandPrimaryRGB = "255, 142, 122";
+    let brandSecondaryRGB = "217, 70, 239";
 
     function updateColorsFromCSS() {
       if (typeof window === "undefined") return;
@@ -52,8 +52,8 @@ export default function DnaLattice() {
         return fallback;
       };
 
-      brandPrimaryRGB = parseToRGBString(primaryHex, "0, 223, 162");
-      brandSecondaryRGB = parseToRGBString(secondaryHex, "0, 136, 255");
+      brandPrimaryRGB = parseToRGBString(primaryHex, "255, 142, 122");
+      brandSecondaryRGB = parseToRGBString(secondaryHex, "217, 70, 239");
     }
 
     const nodes: Node3D[] = [];
