@@ -60,7 +60,7 @@ export default function App() {
           <a href="#" className="flex items-center group select-none">
             <div className={`relative flex items-center justify-center transition-all duration-300 ${isScrolled ? "h-12" : "h-16"
               }`}>
-              <img src={dnaLogo} alt="DNA Logo" className="h-full w-auto object-contain filter drop-shadow-[0_0_8px_rgba(0,223,162,0.15)] group-hover:drop-shadow-[0_0_12px_rgba(0,223,162,0.35)] transition-all duration-300" />
+              <img src={dnaLogo} alt="DNA Logo" className="h-full w-auto object-contain filter drop-shadow-[0_0_8px_rgba(255,142,122,0.15)] group-hover:drop-shadow-[0_0_12px_rgba(255,142,122,0.35)] transition-all duration-300" />
             </div>
           </a>
 
@@ -76,7 +76,7 @@ export default function App() {
           <div className="flex items-center gap-3">
             <a
               href="#briefs"
-              className={`rounded-lg bg-white text-black hover:bg-brand-primary hover:text-white hover:shadow-[0_0_15px_rgba(0,223,162,0.3)] text-xs font-mono tracking-widest uppercase font-bold transition-all duration-300 ${isScrolled ? "px-3.5 py-1.5" : "px-4 py-2"
+              className={`rounded-lg bg-white text-black hover:bg-brand-primary hover:text-white hover:shadow-[0_0_15px_rgba(255,142,122,0.3)] text-xs font-mono tracking-widest uppercase font-bold transition-all duration-300 ${isScrolled ? "px-3.5 py-1.5" : "px-4 py-2"
                 }`}
             >
               Contact Me
@@ -117,7 +117,7 @@ export default function App() {
               <div className="flex flex-wrap gap-4 pt-2">
                 <a
                   href="#briefs"
-                  className="px-6 py-3 rounded-lg bg-white text-black hover:bg-brand-primary hover:text-white hover:shadow-[0_0_15px_rgba(0,223,162,0.3)] text-xs font-mono tracking-widest uppercase font-bold transition-all duration-300"
+                  className="px-6 py-3 rounded-lg bg-white text-black hover:bg-brand-primary hover:text-white hover:shadow-[0_0_15px_rgba(255,142,122,0.3)] text-xs font-mono tracking-widest uppercase font-bold transition-all duration-300"
                 >
                   Contact Me
                 </a>
@@ -245,7 +245,7 @@ export default function App() {
               >
                 <div className="space-y-4">
                   {/* Glowing Icon Wrapper */}
-                  <div className="w-12 h-12 rounded-xl bg-brand-primary/10 border border-brand-primary/20 flex items-center justify-center text-brand-primary shadow-[0_0_15px_rgba(0,223,162,0.1)]">
+                  <div className="w-12 h-12 rounded-xl bg-brand-primary/10 border border-brand-primary/20 flex items-center justify-center text-brand-primary shadow-[0_0_15px_rgba(255,142,122,0.1)]">
                     {svc.id === "creative-direction" ? (
                       <Compass size={20} />
                     ) : svc.id === "ugc-strategy" ? (
@@ -317,7 +317,7 @@ export default function App() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center text-left">
               {/* Left Column: Avatar & Symmetrical Nameplate */}
               <div className="lg:col-span-5 flex flex-col items-center text-center space-y-6">
-                <div className="relative w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden border-2 border-brand-primary/30 shadow-[0_0_40px_rgba(0,223,162,0.15)] group transition-all duration-500 hover:border-brand-secondary/40 hover:shadow-[0_0_40px_rgba(0,136,255,0.15)]">
+                <div className="relative w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden border-2 border-brand-primary/30 shadow-[0_0_40px_rgba(255,142,122,0.15)] group transition-all duration-500 hover:border-brand-secondary/40 hover:shadow-[0_0_40px_rgba(217,70,239,0.15)]">
                   <img
                     src={dnaPfp}
                     alt="Daniel Santos"

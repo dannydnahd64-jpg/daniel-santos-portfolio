@@ -47,11 +47,11 @@ export default function BentoCard({
       {hoverEffect && (
         <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500">
           {/* Subtle neon corner glows overlay */}
-          <div className="absolute top-0 left-0 w-32 h-32 bg-[radial-gradient(circle_at_top_left,rgba(0,223,162,0.15),transparent_60%)] pointer-events-none" />
-          <div className="absolute bottom-0 right-0 w-32 h-32 bg-[radial-gradient(circle_at_bottom_right,rgba(0,136,255,0.15),transparent_60%)] pointer-events-none" />
+          <div className="absolute top-0 left-0 w-32 h-32 bg-[radial-gradient(circle_at_top_left,rgba(255,142,122,0.15),transparent_60%)] pointer-events-none" />
+          <div className="absolute bottom-0 right-0 w-32 h-32 bg-[radial-gradient(circle_at_bottom_right,rgba(217,70,239,0.15),transparent_60%)] pointer-events-none" />
           
           {/* Border tracer run overlays */}
-          <div className="absolute inset-0 border border-transparent [mask-image:linear-gradient(90deg,white,transparent_40%)] before:absolute before:inset-0 before:border before:border-[rgba(0,223,162,0.3)] animate-border-trace" />
+          <div className="absolute inset-0 border border-transparent [mask-image:linear-gradient(90deg,white,transparent_40%)] before:absolute before:inset-0 before:border before:border-[rgba(255,142,122,0.3)] animate-border-trace" />
           <div className="absolute inset-x-0 bottom-0 h-[1px] bg-gradient-to-r from-transparent via-brand-primary/50 to-brand-secondary/50 scale-x-0 group-hover:scale-x-100 transition-transform duration-700 ease-out" />
         </div>
       )}

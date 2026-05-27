@@ -634,7 +634,7 @@ export default function WorkWithBrands({ onPhoneActiveChange }: { onPhoneActiveC
         <div className="grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-4 items-center justify-center font-mono select-none">
           {/* Step 1: Creator input */}
           <div className="md:col-span-1 flex flex-col items-center space-y-2 text-center">
-            <div className="w-10 h-10 rounded-xl bg-brand-primary/10 border border-brand-primary/25 flex items-center justify-center text-brand-primary shadow-[0_0_15px_rgba(0,223,162,0.15)]">
+            <div className="w-10 h-10 rounded-xl bg-brand-primary/10 border border-brand-primary/25 flex items-center justify-center text-brand-primary shadow-[0_0_15px_rgba(255,142,122,0.15)]">
               <Film size={18} />
             </div>
             <div>
@@ -652,7 +652,7 @@ export default function WorkWithBrands({ onPhoneActiveChange }: { onPhoneActiveC
 
           {/* Step 2: Distribution channel */}
           <div className="md:col-span-1 flex flex-col items-center space-y-2 text-center">
-            <div className="w-10 h-10 rounded-xl bg-brand-secondary/10 border border-brand-secondary/25 flex items-center justify-center text-brand-secondary shadow-[0_0_15px_rgba(0,136,255,0.15)]">
+            <div className="w-10 h-10 rounded-xl bg-brand-secondary/10 border border-brand-secondary/25 flex items-center justify-center text-brand-secondary shadow-[0_0_15px_rgba(217,70,239,0.15)]">
               <TrendingUp size={18} />
             </div>
             <div>
@@ -670,7 +670,7 @@ export default function WorkWithBrands({ onPhoneActiveChange }: { onPhoneActiveC
 
           {/* Step 3: Outcomes */}
           <div className="md:col-span-1 flex flex-col items-center space-y-2 text-center">
-            <div className="w-10 h-10 rounded-xl bg-brand-primary/10 border border-brand-primary/25 flex items-center justify-center text-brand-primary shadow-[0_0_15px_rgba(0,223,162,0.15)]">
+            <div className="w-10 h-10 rounded-xl bg-brand-primary/10 border border-brand-primary/25 flex items-center justify-center text-brand-primary shadow-[0_0_15px_rgba(255,142,122,0.15)]">
               <Flame size={18} />
             </div>
             <div>

@@ -161,7 +161,7 @@ export default function ClientInquirySystem() {
               {/* Submit button */}
               <button
                 type="submit"
-                className="w-full py-4 rounded-xl font-mono uppercase text-xs tracking-widest font-bold bg-white text-black hover:bg-brand-primary hover:text-white hover:shadow-[0_0_25px_rgba(0,223,162,0.4)] transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer"
+                className="w-full py-4 rounded-xl font-mono uppercase text-xs tracking-widest font-bold bg-white text-black hover:bg-brand-primary hover:text-white hover:shadow-[0_0_25px_rgba(255,142,122,0.4)] transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer"
               >
                 <Send size={13} />
                 Send Message

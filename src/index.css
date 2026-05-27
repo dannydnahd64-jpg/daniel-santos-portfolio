@@ -6,9 +6,9 @@
   --font-display: "Space Grotesk", sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 
-  /* Custom glow colors built around #00dfa2 and #0088ff */
-  --color-brand-primary: #00dfa2;
-  --color-brand-secondary: #0088ff;
+  /* Custom glow colors built around Sunset Peach and Fuchsia */
+  --color-brand-primary: #FF8E7A;
+  --color-brand-secondary: #D946EF;
   --color-bg-dark: #07080a;
   --color-bg-card: rgba(255, 255, 255, 0.03);
 }
@@ -37,7 +37,7 @@
     border-radius: 99px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: rgba(0, 223, 162, 0.4);
+    background: rgba(255, 142, 122, 0.4);
   }
 }
 
@@ -69,10 +69,10 @@
 }
 
 .combine-glow-effects:hover {
-  border-color: rgba(0, 223, 162, 0.15);
+  border-color: rgba(255, 142, 122, 0.15);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6), 
-              0 0 30px -5px rgba(0, 223, 162, 0.04),
-              inset 0 0 1px 1.5px rgba(0, 223, 162, 0.2);
+              0 0 30px -5px rgba(255, 142, 122, 0.04),
+              inset 0 0 1px 1.5px rgba(255, 142, 122, 0.2);
 }
 
 /* Utility to customize scrollbar inside components */
