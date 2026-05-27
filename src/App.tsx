@@ -1,0 +1,491 @@
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import {
+  Compass,
+  Film,
+  TrendingUp,
+  Zap,
+  CheckCircle2,
+  Lock
+} from "lucide-react";
+
+import DnaLattice from "./components/DnaLattice";
+import BentoCard from "./components/BentoCard";
+import ClientInquirySystem from "./components/ClientInquirySystem";
+import WorkWithBrands from "./components/WorkWithBrands";
+
+import { portfolioStats, services } from "./data";
+import dnaPfp from "../assets/dna-pfp.png";
+import dnaLogo from "../assets/dna-logo.png";
+
+export default function App() {
+  const [showScrollIcon, setShowScrollIcon] = useState(true);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [hideNavbar, setHideNavbar] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setShowScrollIcon(false);
+        setIsScrolled(true);
+      } else {
+        setShowScrollIcon(true);
+        setIsScrolled(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return (
+    <div className="relative min-h-screen bg-[#07080a] text-neutral-100 selection:bg-brand-primary selection:text-white">
+
+      {/* Dynamic 3D DNA Particle Lattice background */}
+      <DnaLattice />
+
+      {/* Background glow filters */}
+      <div className="absolute top-[10%] left-[5%] w-[40rem] h-[40rem] bg-brand-primary/5 rounded-full filter blur-[120px] pointer-events-none z-0" />
+      <div className="absolute top-[40%] right-[5%] w-[35rem] h-[35rem] bg-brand-secondary/5 rounded-full filter blur-[120px] pointer-events-none z-0" />
+
+      {/* 2. Symmetrical Brand Header */}
+      <header className={`sticky top-0 z-40 w-full transition-all duration-300 ease-in-out ${
+        hideNavbar
+          ? "opacity-0 -translate-y-full pointer-events-none"
+          : isScrolled
+            ? "bg-[#07080a]/80 backdrop-blur-md border-b border-brand-primary/10 shadow-[0_10px_30px_rgba(0,0,0,0.8)] h-14"
+            : "bg-[#07080a]/30 backdrop-blur-sm border-b border-white/[0.02] h-20"
+      }`}>
+        <div className="max-w-7xl mx-auto px-4 md:px-8 h-full flex items-center justify-between">
+          {/* Logo */}
+          <a href="#" className="flex items-center group select-none">
+            <div className={`relative flex items-center justify-center transition-all duration-300 ${isScrolled ? "h-12" : "h-16"
+              }`}>
+              <img src={dnaLogo} alt="DNA Logo" className="h-full w-auto object-contain filter drop-shadow-[0_0_8px_rgba(0,223,162,0.15)] group-hover:drop-shadow-[0_0_12px_rgba(0,223,162,0.35)] transition-all duration-300" />
+            </div>
+          </a>
+
+          {/* Quick Nav Anchors */}
+          <nav className="hidden md:flex items-center gap-6 text-xs font-mono tracking-widest uppercase">
+            <a href="#services" className="text-neutral-400 hover:text-white hover:underline decoration-brand-primary decoration-2 underline-offset-4 transition-colors font-medium">My Services</a>
+            <a href="#brands" className="text-neutral-400 hover:text-white hover:underline decoration-brand-primary decoration-2 underline-offset-4 transition-colors font-medium">Partnerships</a>
+            <a href="#about" className="text-neutral-400 hover:text-white hover:underline decoration-brand-primary decoration-2 underline-offset-4 transition-colors font-medium">About</a>
+            <a href="#briefs" className="text-neutral-400 hover:text-white hover:underline decoration-brand-primary decoration-2 underline-offset-4 transition-colors font-medium">Contact Me</a>
+          </nav>
+
+          {/* Symmetrical Action Badge */}
+          <div className="flex items-center gap-3">
+            <a
+              href="#briefs"
+              className={`rounded-lg bg-white text-black hover:bg-brand-primary hover:text-white hover:shadow-[0_0_15px_rgba(0,223,162,0.3)] text-xs font-mono tracking-widest uppercase font-bold transition-all duration-300 ${isScrolled ? "px-3.5 py-1.5" : "px-4 py-2"
+                }`}
+            >
+              Contact Me
+            </a>
+          </div>
+        </div>
+      </header>
+
+      {/* 3. Main Frame layout wrapper */}
+      <main className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 pt-8 pb-20 space-y-16 md:space-y-20">
+
+        {/* HERO INTRO */}
+        <section className="relative min-h-[calc(100vh-80px)] flex items-center pt-4 pb-12 overflow-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center text-left w-full z-10">
+            {/* Left side: CTA & Copy */}
+            <div className="lg:col-span-7 space-y-6">
+              <div className="space-y-4">
+                <motion.h1
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.7, delay: 0.1 }}
+                  className="text-5xl md:text-7xl lg:text-8xl font-display font-black tracking-tighter uppercase leading-none text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary"
+                >
+                  DANIEL "DNA" SANTOS
+                </motion.h1>
+
+                <motion.p
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.7, delay: 0.2 }}
+                  className="text-sm md:text-lg font-mono tracking-wide text-neutral-400 max-w-2xl"
+                >
+                  UGC Creator &middot; Creative Director &middot; Video Editor
+                </motion.p>
+              </div>
+
+              {/* Action Buttons for CTA */}
+              <div className="flex flex-wrap gap-4 pt-2">
+                <a
+                  href="#briefs"
+                  className="px-6 py-3 rounded-lg bg-white text-black hover:bg-brand-primary hover:text-white hover:shadow-[0_0_15px_rgba(0,223,162,0.3)] text-xs font-mono tracking-widest uppercase font-bold transition-all duration-300"
+                >
+                  Contact Me
+                </a>
+                <a
+                  href="#brands"
+                  className="px-6 py-3 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-white text-xs font-mono tracking-widest uppercase font-bold transition-all duration-300"
+                >
+                  View Campaigns
+                </a>
+              </div>
+
+              {/* Symmetrical Hero Stats Metrics Row */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 border-t border-white/[0.06] w-full">
+                <div className="text-left space-y-1">
+                  <span className="text-3xl font-display font-black text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-white block">
+                    {portfolioStats.views}
+                  </span>
+                  <span className="text-[9px] uppercase font-mono tracking-wider text-neutral-500 block leading-tight">
+                    Views Generated
+                  </span>
+                </div>
+
+                <div className="text-left space-y-1">
+                  <span className="text-3xl font-display font-black text-transparent bg-clip-text bg-gradient-to-r from-brand-secondary to-white block">
+                    {portfolioStats.videos}
+                  </span>
+                  <span className="text-[9px] uppercase font-mono tracking-wider text-neutral-500 block leading-tight">
+                    Videos Created
+                  </span>
+                </div>
+
+                <div className="text-left space-y-1">
+                  <span className="text-3xl font-display font-black text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-white block">
+                    {portfolioStats.brands}
+                  </span>
+                  <span className="text-[9px] uppercase font-mono tracking-wider text-neutral-500 block leading-tight">
+                    Brands Worked With
+                  </span>
+                </div>
+
+                <div className="text-left space-y-1">
+                  <span className="text-3xl font-display font-black text-transparent bg-clip-text bg-gradient-to-r from-brand-secondary to-white block">
+                    {portfolioStats.campaigns}
+                  </span>
+                  <span className="text-[9px] uppercase font-mono tracking-wider text-neutral-500 block leading-tight">
+                    Campaigns Delivered
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Right side: Creator Profile Picture Container */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+              className="lg:col-span-5 flex flex-col justify-center items-center relative py-6"
+            >
+              {/* Styled Profile Image Asset */}
+              <div className="relative w-full max-w-[320px] aspect-[3/4] group -mt-8 md:-mt-32">
+                <img
+                  src={dnaPfp}
+                  alt="Daniel Santos - UGC Creator, Creative Director & Video Editor"
+                  className="w-full h-full object-cover transition-all duration-700 pointer-events-none"
+                  referrerPolicy="no-referrer"
+                />
+
+                {/* Bottom gradient overlay to blend into dark background seamlessly */}
+                <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#07080a] via-[#07080a]/50 to-transparent pointer-events-none" />
+              </div>
+
+              {/* Glassmorphic Profile Info Card sitting on page background (DNA lattice flows behind it) */}
+              <div className="w-full max-w-[320px] mt-4 p-4 rounded-xl bg-white/[0.02] backdrop-blur-md border border-white/[0.08] text-center space-y-1 shadow-[0_4px_30px_rgba(0,0,0,0.4)]">
+                <span className="text-xs font-display font-bold text-white uppercase block tracking-widest">DANIEL SANTOS</span>
+                <span className="text-[9px] font-mono text-neutral-400 block tracking-widest">Remote UTC-4</span>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Scroll Indicator */}
+          <AnimatePresence>
+            {showScrollIcon && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3 }}
+                className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 cursor-pointer pointer-events-none select-none"
+              >
+                <span className="text-[9px] font-mono tracking-[0.2em] text-neutral-500 uppercase">Scroll</span>
+                <div className="w-5 h-8 rounded-full border border-neutral-800 flex justify-center p-1">
+                  <motion.div
+                    animate={{ y: [0, 10, 0] }}
+                    transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
+                    className="w-1 h-2 rounded-full bg-brand-primary"
+                  />
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </section>
+
+        {/* SERVICES SECTION */}
+        <section id="services" className="space-y-10 relative">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60rem] h-[30rem] bg-brand-primary/5 rounded-full filter blur-[140px] pointer-events-none -z-10" />
+
+          {/* Section Header */}
+          <div className="text-center space-y-3">
+            <h2 className="text-4xl md:text-5xl font-display font-black tracking-tight text-white uppercase">
+              MY SERVICES
+            </h2>
+            <p className="text-xs md:text-sm font-mono tracking-widest text-neutral-500 uppercase">
+              Sector Specialties & Production Deliverables
+            </p>
+          </div>
+
+          {/* Render individual services in a spacious grid of BentoCards */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {services.map((svc) => (
+              <BentoCard
+                key={svc.id}
+                id={`service-${svc.id}`}
+                className="h-full flex flex-col justify-between space-y-8 min-h-[420px]"
+                hoverEffect={true}
+              >
+                <div className="space-y-4">
+                  {/* Glowing Icon Wrapper */}
+                  <div className="w-12 h-12 rounded-xl bg-brand-primary/10 border border-brand-primary/20 flex items-center justify-center text-brand-primary shadow-[0_0_15px_rgba(0,223,162,0.1)]">
+                    {svc.id === "creative-direction" ? (
+                      <Compass size={20} />
+                    ) : svc.id === "ugc-strategy" ? (
+                      <TrendingUp size={20} />
+                    ) : (
+                      <Film size={20} />
+                    )}
+                  </div>
+
+                  <div className="space-y-2">
+                    <h4 className="text-lg font-display font-bold text-white tracking-tight uppercase">
+                      {svc.title}
+                    </h4>
+                    <p className="text-xs text-neutral-400 leading-relaxed font-sans font-light">
+                      {svc.description}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="space-y-3 pt-5 border-t border-white/[0.04]">
+                  <span className="text-[10px] font-mono uppercase tracking-widest text-brand-primary font-bold block mb-1">
+                    Production Assets:
+                  </span>
+                  <ul className="text-xs text-neutral-400 font-mono space-y-2 text-left">
+                    {svc.deliverables.map((del, i) => (
+                      <li key={i} className="flex items-start gap-2">
+                        <span className="text-brand-primary select-none shrink-0 font-bold">&bull;</span>
+                        <span>{del}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </BentoCard>
+            ))}
+          </div>
+
+          {/* Post Production Pipeline Info bar */}
+          <div className="max-w-3xl mx-auto p-4 rounded-2xl bg-black/40 border border-white/[0.05] text-xs font-mono text-neutral-400 flex items-center justify-center gap-2.5 backdrop-blur-md">
+            <Zap size={14} className="text-amber-400 shrink-0 animate-pulse" />
+            <span>
+              <strong>Post-production pipeline:</strong> Powered by DaVinci Resolve Studio & physical RED cinematography packages.
+            </span>
+          </div>
+        </section>
+
+        {/* WORK WITH BRANDS SECTION */}
+        <WorkWithBrands onPhoneActiveChange={setHideNavbar} />
+
+        {/* ABOUT ME SECTION */}
+        <section id="about" className="space-y-10 relative">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60rem] h-[30rem] bg-brand-secondary/5 rounded-full filter blur-[140px] pointer-events-none -z-10" />
+
+          {/* Section Header */}
+          <div className="text-center space-y-3">
+            <h2 className="text-4xl md:text-5xl font-display font-black tracking-tight text-white uppercase">
+              ABOUT
+            </h2>
+            <p className="text-xs md:text-sm font-mono tracking-widest text-neutral-500 uppercase">
+              Creative Direction &bull; UGC Ads &bull; Video Editing
+            </p>
+          </div>
+
+          {/* Restructured About Card Layout */}
+          <BentoCard
+            id="about-bento-card"
+            className="w-full py-12 md:py-16"
+            hoverEffect={false}
+          >
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center text-left">
+              {/* Left Column: Avatar & Symmetrical Nameplate */}
+              <div className="lg:col-span-5 flex flex-col items-center text-center space-y-6">
+                <div className="relative w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden border-2 border-brand-primary/30 shadow-[0_0_40px_rgba(0,223,162,0.15)] group transition-all duration-500 hover:border-brand-secondary/40 hover:shadow-[0_0_40px_rgba(0,136,255,0.15)]">
+                  <img
+                    src={dnaPfp}
+                    alt="Daniel Santos"
+                    className="w-full h-full object-cover opacity-90 contrast-[1.05] transition-all duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#07080a]/85 to-transparent pointer-events-none" />
+                </div>
+
+                <div className="space-y-1">
+                  <h4 className="text-xl font-display font-black text-white uppercase tracking-wider">
+                    Daniel Santos
+                  </h4>
+                  <p className="text-xs font-mono text-brand-primary tracking-widest uppercase">
+                    AKA "DNA"
+                  </p>
+                  <p className="text-[10px] font-mono text-neutral-500 tracking-wider uppercase mt-1">
+                    Lisbon, Portugal &bull; Remote UTC
+                  </p>
+                </div>
+              </div>
+
+              {/* Right Column: Bio details and Skill Capsules */}
+              <div className="lg:col-span-7 space-y-6">
+                <h3 className="text-xl md:text-2xl font-display font-black text-white uppercase tracking-tight leading-snug">
+                  CRAFTING HIGH-RETENTION CONTENT THAT <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary">BUILDS BRANDS AND DRIVES CONVERSIONS.</span>
+                </h3>
+
+                <div className="space-y-4 text-xs md:text-sm text-neutral-300 leading-relaxed font-sans font-light">
+                  <p>
+                    I bridge the gap between creative visual storytelling and high-performing social advertising. As a Creative Director and UGC Creator, I design and produce organic-feeling content from scratch, ensuring every hook, script, and frame is optimized to capture attention instantly.
+                  </p>
+                  <p>
+                    As an editor, I focus on dynamic pacing, precise sound design, and kinetic styling in DaVinci Resolve. The result is scroll-stopping video content tailored for TikTok, Reels, and Shorts that keeps viewers engaged from start to checkout.
+                  </p>
+                </div>
+
+                {/* Skill badges */}
+                <div className="pt-5 border-t border-white/[0.04] space-y-3">
+                  <span className="text-[10px] font-mono uppercase tracking-widest text-neutral-500 font-bold block">
+                    Core Expertise & Toolkits:
+                  </span>
+                  <div className="flex flex-wrap gap-2">
+                    {[
+                      "UGC Creation",
+                      "Creative Direction",
+                      "Video Editing",
+                      "Hook Scripting",
+                      "DaVinci Resolve",
+                      "Sound Design",
+                      "Direct Response Ads",
+                      "Cinematography"
+                    ].map((skill) => (
+                      <span
+                        key={skill}
+                        className="px-3 py-1.5 rounded-lg border border-white/[0.05] bg-white/[0.02] text-[10px] font-mono text-neutral-400 uppercase tracking-wider"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </BentoCard>
+        </section>
+
+        {/* 6. WORK WITH ME & ADMIN INBOX PORTAL */}
+        <section id="briefs" className="space-y-10 relative">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60rem] h-[30rem] bg-brand-secondary/5 rounded-full filter blur-[140px] pointer-events-none -z-10" />
+
+          {/* Section Header */}
+          <div className="text-center space-y-3">
+            <h2 className="text-4xl md:text-5xl font-display font-black tracking-tight text-white uppercase">
+              CONTACT ME
+            </h2>
+            <p className="text-xs md:text-sm font-mono tracking-widest text-neutral-500 uppercase">
+              Let's build high-converting content together
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+            {/* Brief info card (5 cols) */}
+            <div className="lg:col-span-5 space-y-6 text-left">
+              <div className="space-y-2">
+                <span className="text-[10px] font-mono text-brand-secondary uppercase tracking-widest block font-bold">
+                  [ WORK WITH ME ]
+                </span>
+                <h3 className="text-xl md:text-2xl font-display font-black text-white uppercase tracking-tight">
+                  LET'S SCALE YOUR BRAND
+                </h3>
+              </div>
+
+              <p className="text-xs text-neutral-400 leading-relaxed font-sans">
+                Looking to elevate your brand with high-performing UGC ads, premium art direction, or high-retention video editing? Drop your project details below and let's craft a campaign that captures attention and drives conversions.
+              </p>
+
+              <div className="space-y-4">
+                <div className="flex items-start gap-3.5 p-4 rounded-xl border border-white/[0.04] bg-white/[0.01]">
+                  <div className="w-8 h-8 rounded-lg bg-brand-secondary/10 border border-brand-secondary/20 flex items-center justify-center text-brand-secondary shrink-0">
+                    <CheckCircle2 size={16} />
+                  </div>
+                  <div>
+                    <h4 className="text-xs font-bold text-white">Fast Response</h4>
+                    <p className="text-[11px] text-neutral-400 mt-0.5 leading-relaxed">
+                      I'll review your project details and get back to you with ideas within 24 hours.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3.5 p-4 rounded-xl border border-white/[0.04] bg-white/[0.01]">
+                  <div className="w-8 h-8 rounded-lg bg-brand-primary/10 border border-brand-primary/20 flex items-center justify-center text-brand-primary shrink-0">
+                    <Lock size={16} />
+                  </div>
+                  <div>
+                    <h4 className="text-xs font-bold text-white">End-to-End Production</h4>
+                    <p className="text-[11px] text-neutral-400 mt-0.5 leading-relaxed">
+                      From scripting and casting to final sound design and editing, the entire production pipeline is handled.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="p-5 rounded-xl border border-white/[0.04] bg-black/[0.15] space-y-3">
+                <span className="text-[10px] font-mono text-brand-primary uppercase tracking-wider block font-bold">
+                  Direct Contact
+                </span>
+                <div className="space-y-1.5 text-xs font-mono text-neutral-400">
+                  <p>Email: <a href="mailto:daniel@dnabranding.co" className="text-white hover:underline">daniel@dnabranding.co</a></p>
+                  <p>Telegram: <span className="text-white">@dna_creative_director</span></p>
+                </div>
+              </div>
+            </div>
+
+            {/* Inquiry Form System Card (7 cols) */}
+            <BentoCard
+              id="brief-submission-bento"
+              className="lg:col-span-7"
+              hoverEffect={false}
+            >
+              <ClientInquirySystem />
+            </BentoCard>
+
+          </div>
+        </section>
+
+      </main>
+
+      {/* 7. Footer */}
+      <footer className="border-t border-white/[0.04] bg-black/40 backdrop-blur-md py-12 text-center text-xs text-neutral-600 font-mono uppercase tracking-widest relative z-10 select-none">
+        <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-6">
+          <p className="text-[10px]">
+            &copy; {new Date().getFullYear()} DANIEL SANTOS (DNA). ALL RIGHTS RESERVED.
+          </p>
+          
+          {/* Plain Text Social Links */}
+          <div className="flex flex-wrap justify-center gap-6 text-[10px] text-neutral-500">
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-200">INSTAGRAM</a>
+            <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-200">TIKTOK</a>
+            <a href="https://vimeo.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-200">VIMEO</a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-200">LINKEDIN</a>
+          </div>
+
+          <p className="text-[10px] text-neutral-500 font-mono uppercase tracking-widest">
+            Designed &amp; Developed by <a href="https://jacs.ai" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-brand-primary transition-colors duration-200 font-bold">jacs.ai</a>
+          </p>
+        </div>
+      </footer>
+    </div>
+  );
+}
