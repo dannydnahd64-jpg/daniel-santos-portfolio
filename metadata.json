@@ -1,0 +1,6 @@
+{
+  "name": "Daniel Santos Portfolio",
+  "description": "Interactive Dark Glass UI portfolio for Daniel Santos (DNA), Creative & Video Director. Features a reactive 3D DNA Helix background, videographer video vault, client showcases, services, and live request dashboard.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

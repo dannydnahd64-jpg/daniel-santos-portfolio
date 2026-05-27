@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* Custom glow colors built around #00dfa2 and #0088ff */
+  --color-brand-primary: #00dfa2;
+  --color-brand-secondary: #0088ff;
+  --color-bg-dark: #07080a;
+  --color-bg-card: rgba(255, 255, 255, 0.03);
+}
+
+/* Base style resets */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--color-bg-dark);
+    color: #F3F4F6;
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+
+  /* Custom glowing scrollbars */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #07080a;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 99px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 223, 162, 0.4);
+  }
+}
+
+/* Border tracing loader running lights */
+@keyframes borderTrace {
+  0%, 100% {
+    clip-path: inset(0 0 98% 0);
+  }
+  25% {
+    clip-path: inset(0 0 0 98%);
+  }
+  50% {
+    clip-path: inset(98% 0 0 0);
+  }
+  75% {
+    clip-path: inset(0 98% 0 0);
+  }
+}
+
+.animate-border-trace {
+  animation: borderTrace 4s linear infinite;
+}
+
+/* Glass card shadow glow */
+.combine-glow-effects {
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4), 
+              inset 0 0 1px 1px rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(16px);
+}
+
+.combine-glow-effects:hover {
+  border-color: rgba(0, 223, 162, 0.15);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6), 
+              0 0 30px -5px rgba(0, 223, 162, 0.04),
+              inset 0 0 1px 1.5px rgba(0, 223, 162, 0.2);
+}
+
+/* Utility to customize scrollbar inside components */
+.customize-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+.scrollbar-none {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
