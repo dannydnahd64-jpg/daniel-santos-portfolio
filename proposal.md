@@ -34,11 +34,7 @@ Off-the-shelf templates (WordPress, Squarespace) suffer from platform bloat, slo
 
 *   **Total Cost**: $1,000 (Flat Fee)
 *   **Market Value Justification**: 
-    A typical freelance developer or creative agency would charge between **$3,500 and $7,500** for a project of this complexity. This is because standard portfolios rely on heavy templates, whereas this site features:
-    *   *Bespoke Web App Architecture*: React 19 & Tailwind v4 (not WordPress/Webflow bloat).
-    *   *Custom Canvas Mathematics*: The 3D DNA lattice is hand-coded, which alone would run **$1,500+** at agency rates.
-    *   *Direct-Response Conversion Logic*: The qualified lead intake system acts as a landing page filter to screen clients, saving hours of manual discovery calls.
-    At $1,000, this is an optimized investment designed to generate positive ROI by converting just a single high-ticket creator campaign.
+    A typical freelance developer or creative agency would charge between **$3,500 and $7,500** for a custom build of this caliber. While standard sites rely on heavy templates, this investment delivers a bespoke React/Tailwind application, hand-coded 3D canvas animation, and a pre-qualification client form designed to pay for itself with a single high-ticket campaign.
 *   **Payment Terms**: 
     *   **50% Deposit ($500)**: Required to initiate design and development.
     *   **50% Final Payment ($500)**: Due upon final approval and live site deployment.
