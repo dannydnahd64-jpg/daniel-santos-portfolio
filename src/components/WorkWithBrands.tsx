@@ -18,8 +18,25 @@ import {
   Film,
   TrendingUp,
   ChevronLeft,
-  ChevronRight
+  ChevronRight,
+  ChevronUp,
+  ChevronDown
 } from "lucide-react";
+
+import simpleticsVideo from "../../assets/Simpletics/Copy of copy_B124BD65-5764-42EB-A1B6-5500E25A892E.MOV";
+import simpleticsLogo from "../../assets/Simpletics/IMG_6372.jpg";
+
+import tinynatureVideo from "../../assets/TinyNature Ai/Copy of copy_C2964D98-2174-4C74-8F97-38830A4681C6.MOV";
+import tinynatureLogo from "../../assets/TinyNature Ai/IMG_6299.jpg";
+
+import evolveVideo from "../../assets/Evolve/Copy of copy_65E4E855-D136-42EA-95E7-B4601BE59FBA (1).mov";
+import evolveLogo from "../../assets/Evolve/IMG_6371 (1).jpg";
+
+import cheeterVideo from "../../assets/Cheater Catcher Ai/Copy of copy_381DF141-740A-4627-8F32-936AD2183E80.MOV";
+import cheeterLogo from "../../assets/Cheater Catcher Ai/Screenshot 2026-05-28 001005.png";
+
+import brainrotVideo from "../../assets/Brainrot/Copy of copy_CA963B3F-A7D5-4903-BFA3-14063577BDEF.MOV";
+import brainrotLogo from "../../assets/Brainrot/Copy of Logo.png";
 
 interface PhoneCardData {
   id: string;
@@ -31,114 +48,149 @@ interface PhoneCardData {
   views: string;
   accentColor: string;
   videoUrl: string;
-  logoName: string;
+  logoUrl: string;
+  logoFit?: "cover" | "contain";
+  logoBg?: string;
+  logoWidthClass?: string;
+  logoWidthModalClass?: string;
 }
 
 const brandsData: PhoneCardData[] = [
   {
-    id: "simpletics",
-    name: "simpletics",
-    category: "SaaS Analytics Platform",
-    hookText: "Stop guessing. Start scaling.",
-    highlightWord: "Start scaling.",
-    hookSubtext: "Stop guessing.",
-    views: "125K",
-    accentColor: "#00E5FF", // Cyan
-    videoUrl: "https://player.vimeo.com/external/371433846.sd.mp4?s=236da2f3c0227e33974d11da2e6b22b7b85c165d&profile_id=165&oauth2_token_id=57447761",
-    logoName: "Activity"
-  },
-  {
     id: "tinynature",
     name: "TinyNature",
-    category: "Sustainable Living",
+    category: "AI software",
     hookText: "Tiny habitats. Big impact.",
     highlightWord: "Big impact.",
     hookSubtext: "Tiny habitats.",
     views: "89K",
     accentColor: "#10B981", // Emerald/Green
-    videoUrl: "https://player.vimeo.com/external/435674703.sd.mp4?s=7f397746fb4edeab25602d33454378f16183f064&profile_id=165&oauth2_token_id=57447761",
-    logoName: "Leaf"
+    videoUrl: tinynatureVideo,
+    logoUrl: tinynatureLogo,
+    logoFit: "cover"
   },
   {
-    id: "evolve",
-    name: "Evolve",
-    category: "AI Performance Coaching",
-    hookText: "Unlock your potential. Evolve daily.",
-    highlightWord: "Evolve daily.",
-    hookSubtext: "Unlock your potential.",
-    views: "185K",
-    accentColor: "#F59E0B", // Amber / Golden Orange
-    videoUrl: "https://player.vimeo.com/external/409051876.sd.mp4?s=0e219da0e0172e2cfc2323e1c9e83b8ff2ef4e87&profile_id=165&oauth2_token_id=57447761",
-    logoName: "Sparkles"
-  },
-  {
-    id: "cheetercatcher",
-    name: "Cheeter Catcher",
-    category: "Sports - Performance",
-    hookText: "Catch every cheet.",
-    highlightWord: "Catch every",
-    hookSubtext: "cheet.",
-    views: "44K",
-    accentColor: "#3B82F6", // Blue
-    videoUrl: "https://player.vimeo.com/external/384761655.sd.mp4?s=3c267b2d56a2f7c03c5163b46944d18ec25f9b4c&profile_id=165&oauth2_token_id=57447761",
-    logoName: "Trophy"
+    id: "simpletics",
+    name: "simpletics",
+    category: "Online haircare company",
+    hookText: "Stop guessing. Start scaling.",
+    highlightWord: "Start scaling.",
+    hookSubtext: "Stop guessing.",
+    views: "125K",
+    accentColor: "#00E5FF", // Cyan
+    videoUrl: simpleticsVideo,
+    logoUrl: simpleticsLogo,
+    logoFit: "contain"
   },
   {
     id: "brainrot",
     name: "Brainrot AI",
-    category: "Viral Clip Generator",
+    category: "mobile application",
     hookText: "Generate brainrot clips. Get viral.",
     highlightWord: "Get viral.",
     hookSubtext: "Generate brainrot clips.",
     views: "340K",
     accentColor: "#EF4444", // Red / Coral / Pink
-    videoUrl: "https://player.vimeo.com/external/517616654.sd.mp4?s=2af1e57c603a118d04423403cd8f03767856b3e8&profile_id=165&oauth2_token_id=57447761",
-    logoName: "Flame"
+    videoUrl: brainrotVideo,
+    logoUrl: brainrotLogo,
+    logoFit: "contain"
+  },
+  {
+    id: "evolve",
+    name: "Evolve",
+    category: "mobile application",
+    hookText: "Unlock your potential. Evolve daily.",
+    highlightWord: "Evolve daily.",
+    hookSubtext: "Unlock your potential.",
+    views: "185K",
+    accentColor: "#F59E0B", // Amber / Golden Orange
+    videoUrl: evolveVideo,
+    logoUrl: evolveLogo,
+    logoFit: "contain"
+  },
+  {
+    id: "cheetercatcher",
+    name: "Cheeter Catcher",
+    category: "AI software",
+    hookText: "Catch every cheet.",
+    highlightWord: "Catch every",
+    hookSubtext: "cheet.",
+    views: "44K",
+    accentColor: "#3B82F6", // Blue
+    videoUrl: cheeterVideo,
+    logoUrl: cheeterLogo,
+    logoFit: "contain",
+    logoBg: "#fbf7f4",
+    logoWidthClass: "w-11",
+    logoWidthModalClass: "w-16"
   }
 ];
 
-const logoMap: Record<string, any> = {
-  Activity,
-  Leaf,
-  Cpu,
-  Mic,
-  Heart,
-  Trophy,
-  Sparkles,
-  Flame
-};
 
 export default function WorkWithBrands({ onPhoneActiveChange }: { onPhoneActiveChange?: (active: boolean) => void } = {}) {
   const [unmutedCardId, setUnmutedCardId] = useState<string | null>(null);
   const [pausedCardIds, setPausedCardIds] = useState<Record<string, boolean>>({});
   const [hoveredCardId, setHoveredCardId] = useState<string | null>(null);
+  const [visibleCardIds, setVisibleCardIds] = useState<Record<string, boolean>>({});
+  const [isDesktop, setIsDesktop] = useState(() => typeof window !== "undefined" ? window.innerWidth >= 1024 : false);
+
+  const sectionRef = useRef<HTMLElement>(null);
+  const [sectionInView, setSectionInView] = useState(false);
+
+  // Monitor when section enters viewport to sync animations
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setSectionInView(true);
+        }
+      },
+      { threshold: 0.05 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  // Monitor desktop screen size
+  useEffect(() => {
+    const media = window.matchMedia("(min-width: 1024px)");
+    const listener = (e: MediaQueryListEvent) => setIsDesktop(e.matches);
+    media.addEventListener("change", listener);
+    return () => media.removeEventListener("change", listener);
+  }, []);
 
   // Expanded overlay modal state
   const [expandedBrandId, setExpandedBrandId] = useState<string | null>(null);
   const [modalIsMuted, setModalIsMuted] = useState(false);
   const [modalIsPlaying, setModalIsPlaying] = useState(true);
+  const [navDirection, setNavDirection] = useState<"up" | "down">("up");
 
   // Refs for preview videos
   const videoRefs = useRef<Record<string, HTMLVideoElement | null>>({});
   // Ref for modal video
   const modalVideoRef = useRef<HTMLVideoElement | null>(null);
+  const lastWheelTime = useRef<number>(0);
 
   const activeExpandedBrand = brandsData.find(b => b.id === expandedBrandId);
 
-  const handlePrevBrand = (e: React.MouseEvent) => {
-    e.stopPropagation();
+  const handlePrevBrand = (e?: React.MouseEvent) => {
+    e?.stopPropagation();
     const currentIndex = brandsData.findIndex(b => b.id === expandedBrandId);
     if (currentIndex === -1) return;
     const prevIndex = (currentIndex - 1 + brandsData.length) % brandsData.length;
+    setNavDirection("down");
     setExpandedBrandId(brandsData[prevIndex].id);
     setModalIsPlaying(true);
   };
 
-  const handleNextBrand = (e: React.MouseEvent) => {
-    e.stopPropagation();
+  const handleNextBrand = (e?: React.MouseEvent) => {
+    e?.stopPropagation();
     const currentIndex = brandsData.findIndex(b => b.id === expandedBrandId);
     if (currentIndex === -1) return;
     const nextIndex = (currentIndex + 1) % brandsData.length;
+    setNavDirection("up");
     setExpandedBrandId(brandsData[nextIndex].id);
     setModalIsPlaying(true);
   };
@@ -168,25 +220,62 @@ export default function WorkWithBrands({ onPhoneActiveChange }: { onPhoneActiveC
     }
   };
 
-  // Apply play/pause and mute/unmute to video tags based on state
+  // Intersection Observer for preview videos to play only when in view
   useEffect(() => {
-    brandsData.forEach(brand => {
+    const observerOptions = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.15,
+    };
+
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        const target = entry.target as HTMLVideoElement;
+        const brandId = target.getAttribute("data-brand-id");
+        if (brandId) {
+          setVisibleCardIds((prev) => ({
+            ...prev,
+            [brandId]: entry.isIntersecting,
+          }));
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    brandsData.forEach((brand) => {
+      const video = videoRefs.current[brand.id];
+      if (video) {
+        video.setAttribute("data-brand-id", brand.id);
+        observer.observe(video);
+      }
+    });
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
+  // Apply play/pause and mute/unmute to video tags based on state & visibility
+  useEffect(() => {
+    brandsData.forEach((brand) => {
       const video = videoRefs.current[brand.id];
       if (!video) return;
 
       // Sync mute status
       video.muted = unmutedCardId !== brand.id;
 
-      // Sync play/pause status
-      const isPaused = pausedCardIds[brand.id];
-      if (isPaused) {
+      // Sync play/pause status based on user controls and viewport visibility
+      const isPaused = pausedCardIds[brand.id] || false;
+      const isVisible = visibleCardIds[brand.id] || false;
+
+      if (isPaused || !isVisible) {
         video.pause();
       } else {
-        // Autoplay if not explicitly paused by user
-        video.play().catch(() => { });
+        video.play().catch(() => {});
       }
     });
-  }, [unmutedCardId, pausedCardIds]);
+  }, [unmutedCardId, pausedCardIds, visibleCardIds]);
 
   // Synchronize modal video playback
   useEffect(() => {
@@ -214,8 +303,65 @@ export default function WorkWithBrands({ onPhoneActiveChange }: { onPhoneActiveC
     };
   }, [expandedBrandId, onPhoneActiveChange]);
 
+  // Keyboard listener for vertical navigation in modal
+  useEffect(() => {
+    if (!expandedBrandId) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "ArrowDown") {
+        handleNextBrand();
+      } else if (e.key === "ArrowUp") {
+        handlePrevBrand();
+      } else if (e.key === " ") {
+        e.preventDefault();
+        setModalIsPlaying((prev) => !prev);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [expandedBrandId]);
+
+  // Mouse wheel listener for vertical navigation in modal
+  const handleWheel = (e: React.WheelEvent) => {
+    if (!expandedBrandId) return;
+    const now = Date.now();
+    if (now - lastWheelTime.current < 800) return; // 800ms debounce
+    
+    if (e.deltaY > 30) {
+      lastWheelTime.current = now;
+      handleNextBrand();
+    } else if (e.deltaY < -30) {
+      lastWheelTime.current = now;
+      handlePrevBrand();
+    }
+  };
+
+  const verticalSlideVariants = {
+    enter: (dir: "up" | "down") => ({
+      y: dir === "up" ? "100%" : "-100%",
+      opacity: 0.8,
+    }),
+    center: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        stiffness: 280,
+        damping: 26,
+      },
+    },
+    exit: (dir: "up" | "down") => ({
+      y: dir === "up" ? "-100%" : "100%",
+      opacity: 0.8,
+      transition: {
+        duration: 0.25,
+      },
+    }),
+  };
+
   return (
-    <section id="brands" className="space-y-12 relative">
+    <section ref={sectionRef} id="brands" className="space-y-12 relative">
       {/* Background radial gradients for section glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60rem] h-[30rem] bg-brand-secondary/5 rounded-full filter blur-[140px] pointer-events-none -z-10" />
 
@@ -245,23 +391,50 @@ export default function WorkWithBrands({ onPhoneActiveChange }: { onPhoneActiveC
       {/* 5 Phones Interactive Layout */}
       <div className="relative">
         {/* Mobile Swipe Container / Desktop 5-Column Grid */}
-        <div
+        <motion.div
+          initial="stacked"
+          whileInView="spread"
+          viewport={{ once: true, margin: "-100px" }}
           className="flex overflow-x-auto lg:overflow-visible lg:grid lg:grid-cols-5 gap-6 px-4 md:px-0 pt-12 pb-12 snap-x snap-mandatory scrollbar-none scroll-smooth"
         >
           {brandsData.map((brand, idx) => {
-            const BrandLogo = logoMap[brand.logoName] || Activity;
             const isUnmuted = unmutedCardId === brand.id;
             const isPaused = pausedCardIds[brand.id] || false;
             const isHovered = hoveredCardId === brand.id;
 
+            const cardVariants = {
+              stacked: {
+                opacity: 1,
+                x: isDesktop ? `calc(${(2 - idx) * 100}% + ${(2 - idx) * 24}px)` : 0,
+                y: isDesktop ? Math.abs(idx - 2) * 12 + 30 : 20,
+                rotate: isDesktop ? (idx - 2) * 5 : 0,
+                scale: isDesktop ? 0.9 : 1,
+              },
+              spread: {
+                opacity: 1,
+                x: 0,
+                y: 0,
+                rotate: 0,
+                scale: 1,
+                transition: {
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 18,
+                  mass: 0.8,
+                  delay: isDesktop ? idx * 0.12 : idx * 0.05,
+                }
+              }
+            };
+
             return (
               <motion.div
                 key={brand.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                variants={cardVariants}
+                initial="stacked"
+                whileInView="spread"
+                viewport={{ once: true, margin: "-80px" }}
                 whileHover={{ y: -8, transition: { duration: 0.3 } }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.5, delay: idx * 0.08 }}
+                style={{ willChange: "transform, opacity" }}
                 className="flex-shrink-0 w-[270px] lg:w-auto snap-center flex flex-col items-center space-y-4 group cursor-pointer"
                 onMouseEnter={() => setHoveredCardId(brand.id)}
                 onMouseLeave={() => setHoveredCardId(null)}
@@ -271,16 +444,28 @@ export default function WorkWithBrands({ onPhoneActiveChange }: { onPhoneActiveC
                   setModalIsPlaying(true);
                 }}
               >
-                {/* 1. Phone Frame Mockup */}
-                <div
-                  className="relative w-full aspect-[9/19] rounded-[36px] bg-black border-[7px] border-neutral-900 ring-2 ring-neutral-800/40 overflow-hidden transition-all duration-500"
-                  style={{
-                    boxShadow: isHovered
-                      ? `0 0 35px -5px ${brand.accentColor}40, inset 0 0 0 1.5px ${brand.accentColor}40`
-                      : "0 15px 40px rgba(0, 0, 0, 0.6)",
-                    borderColor: isHovered ? "#1C1C1E" : "#171717",
-                  }}
-                >
+                {/* 1. Phone Frame Wrapper */}
+                <div className="relative w-full aspect-[9/19]">
+                  {/* Subtle Glowing Trace */}
+                  <div 
+                    className="absolute -inset-[2px] rounded-[38px] bg-gradient-to-tr from-brand-primary via-brand-secondary to-brand-primary opacity-30 animate-border-trace pointer-events-none" 
+                    style={{ 
+                      animationDuration: "12s", 
+                      animationDelay: "0s",
+                      animationPlayState: sectionInView ? "running" : "paused"
+                    }}
+                  />
+
+                  {/* Phone Frame Mockup */}
+                  <div
+                    className="relative w-full h-full rounded-[36px] bg-black border-[7px] border-neutral-900 ring-2 ring-neutral-800/40 overflow-hidden transition-all duration-500"
+                    style={{
+                      boxShadow: isHovered
+                        ? `0 0 35px -5px ${brand.accentColor}40, inset 0 0 0 1.5px ${brand.accentColor}40`
+                        : "0 15px 40px rgba(0, 0, 0, 0.6)",
+                      borderColor: isHovered ? "#1C1C1E" : "#171717",
+                    }}
+                  >
                   {/* Notch / Dynamic Island */}
                   <div className="absolute top-2.5 inset-x-0 mx-auto w-20 h-4 rounded-full bg-black z-30 flex items-center justify-end px-2 border border-white/5">
                     <span
@@ -300,7 +485,7 @@ export default function WorkWithBrands({ onPhoneActiveChange }: { onPhoneActiveC
                       loop
                       muted={!isUnmuted}
                       playsInline
-                      autoPlay
+                      preload="metadata"
                     />
                     {/* Shadow overlays for readability */}
                     <div className="absolute inset-x-0 top-0 h-1/4 bg-gradient-to-b from-black/75 to-transparent pointer-events-none" />
@@ -310,14 +495,22 @@ export default function WorkWithBrands({ onPhoneActiveChange }: { onPhoneActiveC
                   {/* Brand Header Overlay */}
                   <div className="absolute top-8 inset-x-0 px-4 flex items-center gap-2 z-20 select-none">
                     <div
-                      className="w-6 h-6 rounded-lg flex items-center justify-center border text-white transition-all duration-300"
+                      className={`h-6 rounded-lg flex items-center justify-center border transition-all duration-300 overflow-hidden ${
+                        brand.logoWidthClass || "w-6"
+                      }`}
                       style={{
                         borderColor: `${brand.accentColor}25`,
-                        backgroundColor: `${brand.accentColor}10`,
-                        boxShadow: `0 0 10px ${brand.accentColor}15`
+                        boxShadow: `0 0 10px ${brand.accentColor}15`,
+                        backgroundColor: brand.logoBg || "#0a0a0a"
                       }}
                     >
-                      <BrandLogo size={12} style={{ color: brand.accentColor }} />
+                      <img
+                        src={brand.logoUrl}
+                        alt={brand.name}
+                        className={`w-full h-full rounded ${
+                          brand.logoFit === "cover" ? "object-cover object-center scale-110" : "object-contain p-0.5"
+                        }`}
+                      />
                     </div>
                     <span className="text-[10px] font-display font-black tracking-widest text-white uppercase">
                       {brand.name}
@@ -332,17 +525,6 @@ export default function WorkWithBrands({ onPhoneActiveChange }: { onPhoneActiveC
                       </div>
                     </div>
                   )}
-
-                  {/* Kinetic Caption Overlay */}
-                  <div className="absolute inset-x-3 bottom-14 z-20 text-left select-none space-y-1">
-                    <div className="p-2.5 rounded-xl bg-black/40 backdrop-blur-md border border-white/5">
-                      <p className="text-[10px] font-display font-bold leading-normal text-white uppercase tracking-wide">
-                        {brand.hookText.split(brand.highlightWord)[0]}
-                        <span style={{ color: brand.accentColor }}>{brand.highlightWord}</span>
-                        {brand.hookText.split(brand.highlightWord)[1]}
-                      </p>
-                    </div>
-                  </div>
 
                   {/* Playback Controls & View Count */}
                   <div className="absolute bottom-3 inset-x-4 flex items-center justify-between z-20 select-none">
@@ -392,6 +574,7 @@ export default function WorkWithBrands({ onPhoneActiveChange }: { onPhoneActiveC
                     </div>
                   </div>
                 </div>
+              </div>
 
                 {/* 2. Text Details Underneath Phone */}
                 <div className="text-center space-y-1 px-2">
@@ -417,7 +600,7 @@ export default function WorkWithBrands({ onPhoneActiveChange }: { onPhoneActiveC
               </motion.div>
             );
           })}
-        </div>
+        </motion.div>
       </div>
 
       {/* Enlarged Modal Overlay (Enlarge Phone & Blur Background) */}
@@ -430,20 +613,37 @@ export default function WorkWithBrands({ onPhoneActiveChange }: { onPhoneActiveC
             className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xl p-4 md:p-6 cursor-pointer"
             style={{ margin: 0 }}
             onClick={() => setExpandedBrandId(null)}
+            onWheel={handleWheel}
           >
             {/* Wrapper for phone + navigation arrows */}
             <div className="relative flex items-center justify-center w-full max-w-[480px]" onClick={(e) => e.stopPropagation()}>
-              {/* Left Navigation Arrow */}
-              <button
-                onClick={handlePrevBrand}
-                className="absolute left-2 xs:left-4 md:-left-16 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/40 hover:bg-neutral-900 border border-white/10 hover:border-white/30 flex items-center justify-center text-neutral-400 hover:text-white backdrop-blur-md transition-all duration-200 z-50 cursor-pointer shadow-[0_0_15px_rgba(0,0,0,0.5)]"
-                aria-label="Previous Campaign"
-                style={{
-                  boxShadow: `0 0 15px ${activeExpandedBrand.accentColor}20`,
-                }}
-              >
-                <ChevronLeft size={24} />
-              </button>
+              
+              {/* Floating Vertical Controls Sidebar (hidden on mobile, sleek on desktop) */}
+              <div className="hidden sm:flex flex-col items-center gap-4 absolute -right-14 md:-right-16 top-1/2 -translate-y-1/2 z-50">
+                {/* Scroll Up Button */}
+                <button
+                  onClick={(e) => handlePrevBrand(e)}
+                  className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/40 hover:bg-neutral-900 border border-white/10 hover:border-white/30 flex items-center justify-center text-neutral-400 hover:text-white backdrop-blur-md transition-all duration-200 shadow-[0_0_15px_rgba(0,0,0,0.5)] cursor-pointer"
+                  aria-label="Previous Campaign"
+                  style={{
+                    boxShadow: `0 0 15px ${activeExpandedBrand.accentColor}20`,
+                  }}
+                >
+                  <ChevronUp size={24} />
+                </button>
+
+                {/* Scroll Down Button */}
+                <button
+                  onClick={(e) => handleNextBrand(e)}
+                  className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/40 hover:bg-neutral-900 border border-white/10 hover:border-white/30 flex items-center justify-center text-neutral-400 hover:text-white backdrop-blur-md transition-all duration-200 shadow-[0_0_15px_rgba(0,0,0,0.5)] cursor-pointer"
+                  aria-label="Next Campaign"
+                  style={{
+                    boxShadow: `0 0 15px ${activeExpandedBrand.accentColor}20`,
+                  }}
+                >
+                  <ChevronDown size={24} />
+                </button>
+              </div>
 
               {/* Modal Body Wrapper (stops propagation) */}
               <motion.div
@@ -473,40 +673,68 @@ export default function WorkWithBrands({ onPhoneActiveChange }: { onPhoneActiveC
                   {/* Large Notch */}
                   <div className="absolute top-3.5 inset-x-0 mx-auto w-24 h-5 rounded-full bg-black z-30 border border-neutral-950 flex items-center justify-end px-3">
                     <span
-                      className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"
+                      className="w-1.5 h-1.5 rounded-full animate-pulse"
                       style={{ backgroundColor: activeExpandedBrand.accentColor }}
                     />
                   </div>
 
-                  {/* Looping Video */}
-                  <div className="absolute inset-0 z-0 bg-neutral-950">
-                    <video
-                      ref={modalVideoRef}
-                      className="w-full h-full object-cover brightness-[0.85] saturate-[1.15]"
-                      src={activeExpandedBrand.videoUrl}
-                      loop
-                      playsInline
-                      autoPlay
-                    />
-                    {/* Visual Gradients */}
-                    <div className="absolute inset-x-0 top-0 h-1/4 bg-gradient-to-b from-black/80 to-transparent pointer-events-none" />
-                    <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/90 via-black/45 to-transparent pointer-events-none" />
+                  {/* Looping Video with Swipe/Drag Transition */}
+                  <div className="absolute inset-0 z-0 bg-neutral-950 overflow-hidden">
+                    <AnimatePresence initial={false} custom={navDirection}>
+                      <motion.div
+                        key={expandedBrandId}
+                        custom={navDirection}
+                        variants={verticalSlideVariants}
+                        initial="enter"
+                        animate="center"
+                        exit="exit"
+                        drag="y"
+                        dragConstraints={{ top: 0, bottom: 0 }}
+                        dragElastic={0.4}
+                        onDragEnd={(event, info) => {
+                          const swipeThreshold = 55;
+                          if (info.offset.y < -swipeThreshold) {
+                            handleNextBrand();
+                          } else if (info.offset.y > swipeThreshold) {
+                            handlePrevBrand();
+                          }
+                        }}
+                        className="absolute inset-0 w-full h-full cursor-grab active:cursor-grabbing"
+                      >
+                        <video
+                          ref={modalVideoRef}
+                          className="w-full h-full object-cover brightness-[0.85] saturate-[1.15] pointer-events-none"
+                          src={activeExpandedBrand.videoUrl}
+                          loop
+                          playsInline
+                          autoPlay
+                        />
+                        {/* Visual Gradients */}
+                        <div className="absolute inset-x-0 top-0 h-1/4 bg-gradient-to-b from-black/80 to-transparent pointer-events-none" />
+                        <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/90 via-black/45 to-transparent pointer-events-none" />
+                      </motion.div>
+                    </AnimatePresence>
                   </div>
 
                   {/* Brand Header */}
                   <div className="absolute top-12 inset-x-6 flex items-center gap-3 z-20 select-none">
                     <div
-                      className="w-8 h-8 rounded-xl flex items-center justify-center border text-white"
+                      className={`h-8 rounded-xl flex items-center justify-center border transition-all duration-300 overflow-hidden ${
+                        activeExpandedBrand.logoWidthModalClass || "w-8"
+                      }`}
                       style={{
                         borderColor: `${activeExpandedBrand.accentColor}25`,
-                        backgroundColor: `${activeExpandedBrand.accentColor}10`,
-                        boxShadow: `0 0 15px ${activeExpandedBrand.accentColor}20`
+                        boxShadow: `0 0 15px ${activeExpandedBrand.accentColor}20`,
+                        backgroundColor: activeExpandedBrand.logoBg || "#0a0a0a"
                       }}
                     >
-                      {(() => {
-                        const LogoComponent = logoMap[activeExpandedBrand.logoName] || Activity;
-                        return <LogoComponent size={16} style={{ color: activeExpandedBrand.accentColor }} />;
-                      })()}
+                      <img
+                        src={activeExpandedBrand.logoUrl}
+                        alt={activeExpandedBrand.name}
+                        className={`w-full h-full ${
+                          activeExpandedBrand.logoFit === "cover" ? "object-cover object-center scale-110" : "object-contain p-0.5"
+                        }`}
+                      />
                     </div>
                     <div>
                       <span className="text-xs font-display font-black tracking-widest text-white uppercase block leading-none">
@@ -526,6 +754,37 @@ export default function WorkWithBrands({ onPhoneActiveChange }: { onPhoneActiveC
                     </div>
                   </div>
 
+                  {/* Page Dot Indicators on the right side of the screen inside the phone frame */}
+                  <div className="absolute right-4 top-1/2 -translate-y-1/2 flex flex-col gap-2.5 z-20 select-none bg-black/30 backdrop-blur-sm px-1.5 py-3 rounded-full border border-white/5">
+                    {brandsData.map((b) => {
+                      const isActive = b.id === expandedBrandId;
+                      return (
+                        <button
+                          key={b.id}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            const targetIndex = brandsData.findIndex((x) => x.id === b.id);
+                            const currentIndex = brandsData.findIndex((x) => x.id === expandedBrandId);
+                            if (targetIndex > currentIndex) {
+                              setNavDirection("up");
+                            } else if (targetIndex < currentIndex) {
+                              setNavDirection("down");
+                            }
+                            setExpandedBrandId(b.id);
+                            setModalIsPlaying(true);
+                          }}
+                          className="w-1.5 h-1.5 rounded-full transition-all duration-300 hover:scale-125"
+                          style={{
+                            backgroundColor: isActive ? b.accentColor : "rgba(255, 255, 255, 0.35)",
+                            transform: isActive ? "scale(1.3)" : "scale(1)",
+                            boxShadow: isActive ? `0 0 8px ${b.accentColor}` : "none",
+                          }}
+                          aria-label={`Go to ${b.name}`}
+                        />
+                      );
+                    })}
+                  </div>
+
                   {/* Big Center Play Overlay (when paused) */}
                   {!modalIsPlaying && (
                     <div className="absolute inset-0 flex items-center justify-center z-20 pointer-events-none">
@@ -539,18 +798,11 @@ export default function WorkWithBrands({ onPhoneActiveChange }: { onPhoneActiveC
                     </div>
                   )}
 
-                  {/* Big Caption Hook */}
-                  <div className="absolute inset-x-5 bottom-20 z-20 text-left select-none space-y-2">
-                    <div className="p-4 rounded-2xl bg-black/45 backdrop-blur-xl border border-white/10 shadow-2xl">
-                      <span className="text-[8px] font-mono text-neutral-500 uppercase tracking-widest block mb-1">
-                        UGC Campaign Hook
-                      </span>
-                      <p className="text-xs md:text-sm font-display font-bold leading-relaxed text-white uppercase tracking-wide">
-                        "{activeExpandedBrand.hookText.split(activeExpandedBrand.highlightWord)[0]}
-                        <span style={{ color: activeExpandedBrand.accentColor }}>{activeExpandedBrand.highlightWord}</span>
-                        {activeExpandedBrand.hookText.split(activeExpandedBrand.highlightWord)[1]}"
-                      </p>
-                    </div>
+                  {/* Swipe Up/Down hint overlay */}
+                  <div className="absolute inset-x-0 bottom-16 flex justify-center z-20 pointer-events-none">
+                    <span className="text-[8px] font-mono text-neutral-500 uppercase tracking-widest bg-black/35 px-2.5 py-1 rounded-full border border-white/5 animate-pulse">
+                      Swipe Up/Down to Navigate
+                    </span>
                   </div>
 
                   {/* Controls Bar at Bottom */}
@@ -601,18 +853,6 @@ export default function WorkWithBrands({ onPhoneActiveChange }: { onPhoneActiveC
                   </div>
                 </div>
               </motion.div>
-
-              {/* Right Navigation Arrow */}
-              <button
-                onClick={handleNextBrand}
-                className="absolute right-2 xs:right-4 md:-right-16 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/40 hover:bg-neutral-900 border border-white/10 hover:border-white/30 flex items-center justify-center text-neutral-400 hover:text-white backdrop-blur-md transition-all duration-200 z-50 cursor-pointer shadow-[0_0_15px_rgba(0,0,0,0.5)]"
-                aria-label="Next Campaign"
-                style={{
-                  boxShadow: `0 0 15px ${activeExpandedBrand.accentColor}20`,
-                }}
-              >
-                <ChevronRight size={24} />
-              </button>
             </div>
           </motion.div>
         )}
@@ -628,7 +868,7 @@ export default function WorkWithBrands({ onPhoneActiveChange }: { onPhoneActiveC
       >
         {/* Glow light running path */}
         <div className="absolute inset-0 bg-gradient-to-r from-brand-primary/5 via-brand-secondary/0 to-brand-primary/5 opacity-50 pointer-events-none" />
-        <div className="absolute -inset-[1px] bg-gradient-to-r from-brand-primary/20 via-brand-secondary/10 to-brand-primary/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 -z-10 pointer-events-none" />
+        <div className="absolute -inset-[1px] bg-gradient-to-r from-brand-primary/10 via-brand-secondary/5 to-brand-primary/10 rounded-3xl opacity-20 -z-10 pointer-events-none" />
 
         {/* Workflow Steps */}
         <div className="grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-4 items-center justify-center font-mono select-none">

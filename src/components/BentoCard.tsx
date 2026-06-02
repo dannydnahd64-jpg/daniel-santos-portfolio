@@ -38,7 +38,7 @@ export default function BentoCard({
         relative group overflow-hidden rounded-2xl
         border border-white/[0.06] bg-black/[0.3] backdrop-blur-xl
         p-6 md:p-8 transition-all duration-300
-        combine-glow-effects
+        ${hoverEffect ? "combine-glow-effects" : "shadow-[0_4px_30px_rgba(0,0,0,0.4)]"}
         ${onClick ? "cursor-pointer active:scale-95" : ""}
         ${className}
       `}

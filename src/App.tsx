@@ -6,7 +6,10 @@ import {
   TrendingUp,
   Zap,
   CheckCircle2,
-  Lock
+  Lock,
+  Linkedin,
+  GraduationCap,
+  ArrowLeftRight
 } from "lucide-react";
 
 import DnaLattice from "./components/DnaLattice";
@@ -190,9 +193,56 @@ export default function App() {
               </div>
 
               {/* Glassmorphic Profile Info Card sitting on page background (DNA lattice flows behind it) */}
-              <div className="w-full max-w-[320px] mt-4 p-4 rounded-xl bg-white/[0.02] backdrop-blur-md border border-white/[0.08] text-center space-y-1 shadow-[0_4px_30px_rgba(0,0,0,0.4)]">
-                <span className="text-xs font-display font-bold text-white uppercase block tracking-widest">DANIEL SANTOS</span>
-                <span className="text-[9px] font-mono text-neutral-400 block tracking-widest">Remote UTC-4</span>
+              <div className="w-full max-w-[320px] mt-4 p-4 rounded-xl bg-white/[0.02] backdrop-blur-md border border-white/[0.08] text-center space-y-3 shadow-[0_4px_30px_rgba(0,0,0,0.4)]">
+                <div className="space-y-2 flex flex-col items-center">
+                  <span className="text-xs font-display font-bold text-white uppercase block tracking-widest">DANIEL SANTOS</span>
+                  <div className="flex items-center gap-1.5 text-[8.5px] font-mono text-neutral-400 border-t border-white/[0.04] pt-2 w-full justify-center whitespace-nowrap">
+                    <GraduationCap size={12} className="text-brand-primary shrink-0" />
+                    <span>BA in Digital Media Innovations &middot; Business Minor</span>
+                  </div>
+                </div>
+                
+                {/* Social Links */}
+                <div className="flex items-center justify-center gap-4 pt-2.5 border-t border-white/[0.04]">
+                  <a 
+                    href="https://www.linkedin.com/in/daniel-santos-34a044302?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-neutral-400 hover:text-brand-secondary transition-colors duration-200"
+                    aria-label="LinkedIn"
+                  >
+                    <Linkedin size={16} />
+                  </a>
+                  <a 
+                    href="https://www.tiktok.com/@thisisdna_?_r=1&_t=ZP-96rklGYowBz" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-neutral-400 hover:text-brand-primary transition-colors duration-200"
+                    aria-label="TikTok"
+                  >
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+                    </svg>
+                  </a>
+                  <a 
+                    href="https://app.sideshift.app/portfolio/xpaYaXIx6YdKXHFpLgXWPDTf30E3" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-neutral-400 hover:text-orange-500 transition-colors duration-200"
+                    aria-label="SideShift"
+                  >
+                    <ArrowLeftRight size={16} />
+                  </a>
+                </div>
               </div>
             </motion.div>
           </div>
@@ -241,7 +291,7 @@ export default function App() {
                 key={svc.id}
                 id={`service-${svc.id}`}
                 className="h-full flex flex-col justify-between space-y-8 min-h-[420px]"
-                hoverEffect={true}
+                hoverEffect={false}
               >
                 <div className="space-y-4">
                   {/* Glowing Icon Wrapper */}
@@ -347,28 +397,28 @@ export default function App() {
 
                 <div className="space-y-4 text-xs md:text-sm text-neutral-300 leading-relaxed font-sans font-light">
                   <p>
-                    I bridge the gap between creative visual storytelling and high-performing social advertising. As a Creative Director and UGC Creator, I design and produce organic-feeling content from scratch, ensuring every hook, script, and frame is optimized to capture attention instantly.
+                    I’m a professional content creator, filmmaker, and entrepreneur with a strong focus on creating engaging digital content that feels authentic, high-quality, and built to connect with people. My background in photography and videography gave me a strong creative foundation, but over time my focus has shifted into content creation—especially direct-to-camera videos, brand storytelling, and performance-driven content made for today’s digital platforms.
                   </p>
                   <p>
-                    As an editor, I focus on dynamic pacing, precise sound design, and kinetic styling in DaVinci Resolve. The result is scroll-stopping video content tailored for TikTok, Reels, and Shorts that keeps viewers engaged from start to checkout.
+                    Creating content is something I genuinely enjoy. I love the process of turning an idea into a finished video that feels natural, captures attention, and delivers a message in a way that connects with people. I work quickly, stay organized, and take pride in creating content efficiently without sacrificing quality. With experience producing over 50 videos a month, I’ve built a fast-paced workflow that allows me to stay consistent, adaptable, and creative while delivering strong results.
+                  </p>
+                  <p>
+                    Alongside content creation, I also have experience as an entrepreneur and co-founder in the tech space, which has helped me develop a strong business mindset, leadership skills, and a strategic approach to creative work. I enjoy building ideas from the ground up, solving problems creatively, and bringing both vision and execution together in everything I work on.
                   </p>
                 </div>
 
                 {/* Skill badges */}
                 <div className="pt-5 border-t border-white/[0.04] space-y-3">
                   <span className="text-[10px] font-mono uppercase tracking-widest text-neutral-500 font-bold block">
-                    Core Expertise & Toolkits:
+                    Core Skills:
                   </span>
                   <div className="flex flex-wrap gap-2">
                     {[
-                      "UGC Creation",
-                      "Creative Direction",
-                      "Video Editing",
-                      "Hook Scripting",
-                      "DaVinci Resolve",
-                      "Sound Design",
-                      "Direct Response Ads",
-                      "Cinematography"
+                      "UGC Content",
+                      "Talking-Head Videos",
+                      "Creative Strategy",
+                      "Entrepreneurship",
+                      "Content Creation"
                     ].map((skill) => (
                       <span
                         key={skill}
@@ -446,9 +496,15 @@ export default function App() {
                   Direct Contact
                 </span>
                 <div className="space-y-1.5 text-xs font-mono text-neutral-400">
-                  <p>Email: <a href="mailto:daniel@dnabranding.co" className="text-white hover:underline">daniel@dnabranding.co</a></p>
-                  <p>Telegram: <span className="text-white">@dna_creative_director</span></p>
+                  <p>Email: <a href="mailto:contactdnahq@gmail.com" className="text-white hover:underline">contactdnahq@gmail.com</a></p>
                 </div>
+              </div>
+
+              {/* Saying */}
+              <div className="pt-4 border-t border-white/[0.04] select-none text-left">
+                <p className="text-xs font-mono italic text-brand-primary tracking-wide animate-pulse">
+                  &ldquo;Take the risk or lose the chance.&rdquo;
+                </p>
               </div>
             </div>
 

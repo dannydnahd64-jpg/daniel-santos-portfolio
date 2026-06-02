@@ -2,7 +2,7 @@ import { ServiceItem, PortfolioStats } from "./types";
 
 export const portfolioStats: PortfolioStats = {
   views: "50M+",
-  videos: "250+",
+  videos: "1000+",
   brands: "25+",
   campaigns: "100+",
 };
