@@ -5,13 +5,10 @@ import {
   Compass,
   Film,
   TrendingUp,
-  Zap,
   Linkedin,
   GraduationCap,
   ArrowLeftRight,
-  Mail,
-  Clock,
-  Globe
+  Mail
 } from "lucide-react";
 
 import DnaLattice from "./components/DnaLattice";
@@ -122,7 +119,7 @@ export default function App() {
                   transition={{ duration: 0.7, delay: 0.2 }}
                   className="text-sm md:text-lg font-mono tracking-wide text-neutral-400 max-w-2xl"
                 >
-                  UGC Creator &middot; Creative Director &middot; Video Editor
+                  Creative Director &middot; UGC Creator &middot; Film Maker
                 </motion.p>
               </div>
 
@@ -193,7 +190,7 @@ export default function App() {
               <div className="relative w-full max-w-[320px] aspect-[3/4] group -mt-8 md:-mt-32">
                 <img
                   src={dnaPfp}
-                  alt="Daniel Santos - UGC Creator, Creative Director & Video Editor"
+                  alt="Daniel Santos - Creative Director, UGC Creator & Film Maker"
                   className="w-full h-full object-cover transition-all duration-700 pointer-events-none"
                   referrerPolicy="no-referrer"
                 />
@@ -342,13 +339,7 @@ export default function App() {
             ))}
           </div>
 
-          {/* Post Production Pipeline Info bar */}
-          <div className="max-w-3xl mx-auto p-4 rounded-2xl bg-black/40 border border-white/[0.05] text-xs font-mono text-neutral-400 flex items-center justify-center gap-2.5 backdrop-blur-md">
-            <Zap size={14} className="text-amber-400 shrink-0 animate-pulse" />
-            <span>
-              <strong>Post-production pipeline:</strong> Powered by DaVinci Resolve Studio & physical RED cinematography packages.
-            </span>
-          </div>
+
         </section>
 
         {/* WORK WITH BRANDS SECTION */}
@@ -487,26 +478,6 @@ export default function App() {
                       <a href="mailto:contactdnahq@gmail.com" className="text-white hover:underline hover:text-brand-secondary transition-colors">
                         contactdnahq@gmail.com
                       </a>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-white/[0.03] border border-white/[0.08] flex items-center justify-center text-brand-primary shrink-0">
-                      <Clock size={14} />
-                    </div>
-                    <div>
-                      <span className="text-[9px] text-neutral-500 block uppercase tracking-wider font-semibold">Response Time</span>
-                      <span className="text-neutral-300">Within 24 Hours</span>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-white/[0.03] border border-white/[0.08] flex items-center justify-center text-amber-500 shrink-0">
-                      <Globe size={14} />
-                    </div>
-                    <div>
-                      <span className="text-[9px] text-neutral-500 block uppercase tracking-wider font-semibold">Availability</span>
-                      <span className="text-neutral-300">Lisbon, Portugal &bull; Available Worldwide</span>
                     </div>
                   </div>
                 </div>
