@@ -70,7 +70,7 @@ export default function App() {
           <a href="#" className="flex items-center group select-none">
             <div className={`relative flex items-center justify-center transition-all duration-300 ${isScrolled ? "h-12" : "h-16"
               }`}>
-              <img src={dnaLogo} alt="Daniel Santos (DNA) Logo - UGC Creator & Creative Director" className="h-full w-auto object-contain filter drop-shadow-[0_0_8px_rgba(0,223,162,0.15)] group-hover:drop-shadow-[0_0_12px_rgba(0,223,162,0.35)] transition-all duration-300" />
+              <img src={dnaLogo} alt="Daniel Santos (DNA) Logo - Creative Director & UGC Creator" className="h-full w-auto object-contain filter drop-shadow-[0_0_8px_rgba(0,223,162,0.15)] group-hover:drop-shadow-[0_0_12px_rgba(0,223,162,0.35)] transition-all duration-300" />
             </div>
           </a>
 
