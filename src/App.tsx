@@ -355,7 +355,7 @@ export default function App() {
               ABOUT
             </h2>
             <p className="text-xs md:text-sm font-mono tracking-widest text-neutral-500 uppercase">
-              Creative Direction &bull; UGC Ads &bull; Video Editing
+              Creative Directing &bull; UGC Ads &bull; Filmmaking
             </p>
           </div>
 
