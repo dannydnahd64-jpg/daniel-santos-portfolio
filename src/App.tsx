@@ -393,9 +393,6 @@ export default function App() {
                   <p className="text-xs font-mono text-brand-primary tracking-widest uppercase">
                     AKA "DNA"
                   </p>
-                  <p className="text-[10px] font-mono text-neutral-500 tracking-wider uppercase mt-1">
-                    Lisbon, Portugal &bull; Remote UTC
-                  </p>
                 </div>
               </div>
 
