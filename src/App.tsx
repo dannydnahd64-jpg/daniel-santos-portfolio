@@ -119,7 +119,7 @@ export default function App() {
                   transition={{ duration: 0.7, delay: 0.2 }}
                   className="text-sm md:text-lg font-mono tracking-wide text-neutral-400 max-w-2xl"
                 >
-                  Creative Director &middot; UGC Creator &middot; Film Maker
+                  Creative Director &middot; UGC Creator &middot; Filmmaker
                 </motion.p>
               </div>
 
@@ -190,7 +190,7 @@ export default function App() {
               <div className="relative w-full max-w-[320px] aspect-[3/4] group -mt-8 md:-mt-32">
                 <img
                   src={dnaPfp}
-                  alt="Daniel Santos - Creative Director, UGC Creator & Film Maker"
+                  alt="Daniel Santos - Creative Director, UGC Creator & Filmmaker"
                   className="w-full h-full object-cover transition-all duration-700 pointer-events-none"
                   referrerPolicy="no-referrer"
                 />
