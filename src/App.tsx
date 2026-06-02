@@ -6,8 +6,6 @@ import {
   Film,
   TrendingUp,
   Zap,
-  CheckCircle2,
-  Lock,
   Linkedin,
   GraduationCap,
   ArrowLeftRight
@@ -473,32 +471,6 @@ export default function App() {
               <p className="text-xs text-neutral-400 leading-relaxed font-sans">
                 Looking to elevate your brand with high-performing UGC ads, premium art direction, or high-retention video editing? Drop your project details below and let's craft a campaign that captures attention and drives conversions.
               </p>
-
-              <div className="space-y-4">
-                <div className="flex items-start gap-3.5 p-4 rounded-xl border border-white/[0.04] bg-white/[0.01]">
-                  <div className="w-8 h-8 rounded-lg bg-brand-secondary/10 border border-brand-secondary/20 flex items-center justify-center text-brand-secondary shrink-0">
-                    <CheckCircle2 size={16} />
-                  </div>
-                  <div>
-                    <h4 className="text-xs font-bold text-white">Fast Response</h4>
-                    <p className="text-[11px] text-neutral-400 mt-0.5 leading-relaxed">
-                      I'll review your project details and get back to you with ideas within 24 hours.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3.5 p-4 rounded-xl border border-white/[0.04] bg-white/[0.01]">
-                  <div className="w-8 h-8 rounded-lg bg-brand-primary/10 border border-brand-primary/20 flex items-center justify-center text-brand-primary shrink-0">
-                    <Lock size={16} />
-                  </div>
-                  <div>
-                    <h4 className="text-xs font-bold text-white">End-to-End Production</h4>
-                    <p className="text-[11px] text-neutral-400 mt-0.5 leading-relaxed">
-                      From scripting and casting to final sound design and editing, the entire production pipeline is handled.
-                    </p>
-                  </div>
-                </div>
-              </div>
 
               <div className="p-5 rounded-xl border border-white/[0.04] bg-black/[0.15] space-y-3">
                 <span className="text-[10px] font-mono text-brand-primary uppercase tracking-wider block font-bold">
