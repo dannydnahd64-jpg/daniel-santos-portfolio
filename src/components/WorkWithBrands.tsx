@@ -23,19 +23,19 @@ import {
   ChevronDown
 } from "lucide-react";
 
-import simpleticsVideo from "../../assets/Simpletics/Copy of copy_B124BD65-5764-42EB-A1B6-5500E25A892E.MOV";
+const simpleticsVideo = "";
 import simpleticsLogo from "../../assets/Simpletics/IMG_6372.jpg";
 
-import tinynatureVideo from "../../assets/TinyNature Ai/Copy of copy_C2964D98-2174-4C74-8F97-38830A4681C6.MOV";
+const tinynatureVideo = "";
 import tinynatureLogo from "../../assets/TinyNature Ai/IMG_6299.jpg";
 
-import evolveVideo from "../../assets/Evolve/Copy of copy_65E4E855-D136-42EA-95E7-B4601BE59FBA (1).mov";
+const evolveVideo = "";
 import evolveLogo from "../../assets/Evolve/IMG_6371 (1).jpg";
 
-import cheeterVideo from "../../assets/Cheater Catcher Ai/Copy of copy_381DF141-740A-4627-8F32-936AD2183E80.MOV";
+const cheeterVideo = "";
 import cheeterLogo from "../../assets/Cheater Catcher Ai/Screenshot 2026-05-28 001005.png";
 
-import brainrotVideo from "../../assets/Brainrot/Copy of copy_CA963B3F-A7D5-4903-BFA3-14063577BDEF.MOV";
+const brainrotVideo = "";
 import brainrotLogo from "../../assets/Brainrot/Copy of Logo.png";
 
 interface PhoneCardData {
