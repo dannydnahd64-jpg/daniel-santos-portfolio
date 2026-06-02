@@ -15,7 +15,7 @@ export default function DnaLattice() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
-    if (isLowPerformanceDevice()) {
+    if (isLowPerformanceDevice() || window.innerWidth < 768) {
       setDisabled(true);
       return;
     }

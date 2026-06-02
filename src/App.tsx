@@ -521,7 +521,7 @@ export default function App() {
           </div>
 
           <p className="text-[10px] text-neutral-500 font-mono uppercase tracking-widest">
-            Designed &amp; Developed by <a href="https://jacs.ai" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-brand-primary transition-colors duration-200 font-bold">jacs.ai</a>
+            Designed &amp; Developed by <a href="https://jacobjjmungai.com" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-brand-primary transition-colors duration-200 font-bold">jacs.ai</a>
           </p>
         </div>
       </footer>
