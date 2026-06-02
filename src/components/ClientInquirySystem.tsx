@@ -77,19 +77,16 @@ export default function ClientInquirySystem({
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.98 }}
             transition={{ duration: 0.3 }}
-            className="p-8 text-center space-y-4 rounded-xl border border-emerald-500/20 bg-emerald-950/10 text-left"
+            className="p-8 text-center space-y-4 rounded-xl border border-emerald-500/20 bg-emerald-950/10"
           >
             <div className="w-12 h-12 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center mx-auto text-emerald-400">
               <CheckCircle2 size={24} />
             </div>
             <div className="space-y-1 text-center">
-              <h4 className="text-lg font-bold text-white">Message Transmitted!</h4>
+              <h4 className="text-lg font-bold text-white">Message Sent!</h4>
               <p className="text-xs text-neutral-400 leading-relaxed max-w-sm mx-auto">
-                Daniel Santos has received your message and will get back to you within 24 hours.
+                Thanks for reaching out! I'll get back to you as soon as possible.
               </p>
-            </div>
-            <div className="text-[10px] uppercase tracking-widest font-mono text-emerald-500 flex items-center justify-center gap-2">
-              <span>Connection Secure</span> • <span>Instant Sync Active</span>
             </div>
           </motion.div>
         ) : (
