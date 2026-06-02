@@ -8,7 +8,10 @@ import {
   Zap,
   Linkedin,
   GraduationCap,
-  ArrowLeftRight
+  ArrowLeftRight,
+  Mail,
+  Clock,
+  Globe
 } from "lucide-react";
 
 import DnaLattice from "./components/DnaLattice";
@@ -472,12 +475,43 @@ export default function App() {
                 Looking to elevate your brand with high-performing UGC ads, premium art direction, or high-retention video editing? Drop your project details below and let's craft a campaign that captures attention and drives conversions.
               </p>
 
-              <div className="p-5 rounded-xl border border-white/[0.04] bg-black/[0.15] space-y-3">
-                <span className="text-[10px] font-mono text-brand-primary uppercase tracking-wider block font-bold">
+              <div className="p-6 rounded-2xl border border-white/[0.06] bg-gradient-to-br from-white/[0.02] to-transparent space-y-4 shadow-[0_4px_30px_rgba(0,0,0,0.2)]">
+                <span className="text-[10px] font-mono text-brand-primary uppercase tracking-widest block font-bold">
                   Direct Contact
                 </span>
-                <div className="space-y-1.5 text-xs font-mono text-neutral-400">
-                  <p>Email: <a href="mailto:contactdnahq@gmail.com" className="text-white hover:underline">contactdnahq@gmail.com</a></p>
+                
+                <div className="space-y-3.5 text-xs font-mono text-neutral-300">
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-lg bg-white/[0.03] border border-white/[0.08] flex items-center justify-center text-brand-secondary shrink-0">
+                      <Mail size={14} />
+                    </div>
+                    <div>
+                      <span className="text-[9px] text-neutral-500 block uppercase tracking-wider font-semibold">Email</span>
+                      <a href="mailto:contactdnahq@gmail.com" className="text-white hover:underline hover:text-brand-secondary transition-colors">
+                        contactdnahq@gmail.com
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-lg bg-white/[0.03] border border-white/[0.08] flex items-center justify-center text-brand-primary shrink-0">
+                      <Clock size={14} />
+                    </div>
+                    <div>
+                      <span className="text-[9px] text-neutral-500 block uppercase tracking-wider font-semibold">Response Time</span>
+                      <span className="text-neutral-300">Within 24 Hours</span>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-lg bg-white/[0.03] border border-white/[0.08] flex items-center justify-center text-amber-500 shrink-0">
+                      <Globe size={14} />
+                    </div>
+                    <div>
+                      <span className="text-[9px] text-neutral-500 block uppercase tracking-wider font-semibold">Availability</span>
+                      <span className="text-neutral-300">Lisbon, Portugal &bull; Available Worldwide</span>
+                    </div>
+                  </div>
                 </div>
               </div>
 
