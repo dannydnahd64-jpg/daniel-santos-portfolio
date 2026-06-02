@@ -287,7 +287,6 @@ export default function WorkWithBrands({ onPhoneActiveChange }: { onPhoneActiveC
 
   // Apply play/pause and mute/unmute to video tags based on state & visibility
   useEffect(() => {
-    if (!isDesktop) return;
     brandsData.forEach((brand) => {
       const video = videoRefs.current[brand.id];
       if (!video) return;
@@ -305,7 +304,7 @@ export default function WorkWithBrands({ onPhoneActiveChange }: { onPhoneActiveC
         video.play().catch(() => {});
       }
     });
-  }, [unmutedCardId, pausedCardIds, visibleCardIds, isDesktop]);
+  }, [unmutedCardId, pausedCardIds, visibleCardIds]);
 
   // Synchronize modal video playback
   useEffect(() => {
@@ -515,11 +514,11 @@ export default function WorkWithBrands({ onPhoneActiveChange }: { onPhoneActiveC
                         videoRefs.current[brand.id] = el;
                       }}
                       className="w-full h-full object-cover brightness-[0.8] saturate-[1.1] transition-transform duration-700 group-hover:scale-105"
-                      src={isDesktop && visibleCardIds[brand.id] ? brand.videoUrls[0] : ""}
+                      src={visibleCardIds[brand.id] ? brand.videoUrls[0] : ""}
                       loop
                       muted={!isUnmuted}
                       playsInline
-                      preload={isDesktop ? "auto" : "none"}
+                      preload="none"
                       poster={brand.logoUrl}
                     />
                     {/* Shadow overlays for readability */}

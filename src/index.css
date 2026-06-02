@@ -17,12 +17,17 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
   }
   body {
     background-color: var(--color-bg-dark);
     color: #F3F4F6;
     font-family: var(--font-sans);
     overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
   }
 
   /* Custom glowing scrollbars */

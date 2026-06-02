@@ -371,7 +371,7 @@ export default function DnaLattice() {
     <div
       id="dna-lattice-container"
       ref={containerRef}
-      className="fixed inset-0 w-screen h-screen overflow-hidden pointer-events-none z-0 bg-transparent"
+      className="fixed inset-0 w-full h-full overflow-hidden pointer-events-none z-0 bg-transparent"
       style={{ backgroundColor: "transparent" }}
     >
       <canvas
