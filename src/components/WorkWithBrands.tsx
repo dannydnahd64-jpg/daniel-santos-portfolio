@@ -47,7 +47,7 @@ interface PhoneCardData {
   hookSubtext: string;
   views: string;
   accentColor: string;
-  videoUrl: string;
+  videoUrls: string[];
   logoUrl: string;
   logoFit?: "cover" | "contain";
   logoBg?: string;
@@ -65,7 +65,7 @@ const brandsData: PhoneCardData[] = [
     hookSubtext: "Tiny habitats.",
     views: "89K",
     accentColor: "#10B981", // Emerald/Green
-    videoUrl: tinynatureVideo,
+    videoUrls: ["https://res.cloudinary.com/ditgihwra/video/upload/v1780384158/TinyNature_3_pc3wkp.mp4"],
     logoUrl: tinynatureLogo,
     logoFit: "cover"
   },
@@ -78,7 +78,13 @@ const brandsData: PhoneCardData[] = [
     hookSubtext: "Stop guessing.",
     views: "125K",
     accentColor: "#00E5FF", // Cyan
-    videoUrl: simpleticsVideo,
+    videoUrls: [
+      "https://res.cloudinary.com/ditgihwra/video/upload/v1780384593/Simpletics_2_3_khnc2h.mp4",
+      "https://res.cloudinary.com/ditgihwra/video/upload/v1780383566/Copy_Of_11_zb0bel.mp4",
+      "https://res.cloudinary.com/ditgihwra/video/upload/v1780383705/Copy_Of_15_vo1ntd.mp4",
+      "https://res.cloudinary.com/ditgihwra/video/upload/v1780383710/Copy_Of_16_x5ezff.mp4",
+      "https://res.cloudinary.com/ditgihwra/video/upload/v1780384233/Simpletics1_umzhpf.mp4"
+    ],
     logoUrl: simpleticsLogo,
     logoFit: "contain"
   },
@@ -91,7 +97,7 @@ const brandsData: PhoneCardData[] = [
     hookSubtext: "Generate brainrot clips.",
     views: "340K",
     accentColor: "#EF4444", // Red / Coral / Pink
-    videoUrl: brainrotVideo,
+    videoUrls: ["https://res.cloudinary.com/ditgihwra/video/upload/v1780384149/Brainrot_3_zortsc.mp4"],
     logoUrl: brainrotLogo,
     logoFit: "contain"
   },
@@ -104,7 +110,10 @@ const brandsData: PhoneCardData[] = [
     hookSubtext: "Unlock your potential.",
     views: "185K",
     accentColor: "#F59E0B", // Amber / Golden Orange
-    videoUrl: evolveVideo,
+    videoUrls: [
+      "https://res.cloudinary.com/ditgihwra/video/upload/v1780384124/Evolve_2_c5excv.mp4",
+      "https://res.cloudinary.com/ditgihwra/video/upload/v1780384128/Evolve_2_1_2_d21qg2.mp4"
+    ],
     logoUrl: evolveLogo,
     logoFit: "contain"
   },
@@ -117,7 +126,7 @@ const brandsData: PhoneCardData[] = [
     hookSubtext: "cheet.",
     views: "44K",
     accentColor: "#3B82F6", // Blue
-    videoUrl: cheeterVideo,
+    videoUrls: ["https://res.cloudinary.com/ditgihwra/video/upload/v1780384154/Cheater_Catcher_2_hirxgn.mp4"],
     logoUrl: cheeterLogo,
     logoFit: "contain",
     logoBg: "#fbf7f4",
@@ -163,9 +172,15 @@ export default function WorkWithBrands({ onPhoneActiveChange }: { onPhoneActiveC
 
   // Expanded overlay modal state
   const [expandedBrandId, setExpandedBrandId] = useState<string | null>(null);
+  const [activeVideoIndex, setActiveVideoIndex] = useState(0);
   const [modalIsMuted, setModalIsMuted] = useState(false);
   const [modalIsPlaying, setModalIsPlaying] = useState(true);
   const [navDirection, setNavDirection] = useState<"up" | "down">("up");
+
+  // Reset active video index when brand is switched
+  useEffect(() => {
+    setActiveVideoIndex(0);
+  }, [expandedBrandId]);
 
   // Refs for preview videos
   const videoRefs = useRef<Record<string, HTMLVideoElement | null>>({});
@@ -174,6 +189,20 @@ export default function WorkWithBrands({ onPhoneActiveChange }: { onPhoneActiveC
   const lastWheelTime = useRef<number>(0);
 
   const activeExpandedBrand = brandsData.find(b => b.id === expandedBrandId);
+
+  const handlePrevVideo = () => {
+    if (!activeExpandedBrand) return;
+    const count = activeExpandedBrand.videoUrls.length;
+    setActiveVideoIndex((prev) => (prev - 1 + count) % count);
+    setModalIsPlaying(true);
+  };
+
+  const handleNextVideo = () => {
+    if (!activeExpandedBrand) return;
+    const count = activeExpandedBrand.videoUrls.length;
+    setActiveVideoIndex((prev) => (prev + 1) % count);
+    setModalIsPlaying(true);
+  };
 
   const handlePrevBrand = (e?: React.MouseEvent) => {
     e?.stopPropagation();
@@ -258,6 +287,7 @@ export default function WorkWithBrands({ onPhoneActiveChange }: { onPhoneActiveC
 
   // Apply play/pause and mute/unmute to video tags based on state & visibility
   useEffect(() => {
+    if (!isDesktop) return;
     brandsData.forEach((brand) => {
       const video = videoRefs.current[brand.id];
       if (!video) return;
@@ -275,7 +305,7 @@ export default function WorkWithBrands({ onPhoneActiveChange }: { onPhoneActiveC
         video.play().catch(() => {});
       }
     });
-  }, [unmutedCardId, pausedCardIds, visibleCardIds]);
+  }, [unmutedCardId, pausedCardIds, visibleCardIds, isDesktop]);
 
   // Synchronize modal video playback
   useEffect(() => {
@@ -303,7 +333,7 @@ export default function WorkWithBrands({ onPhoneActiveChange }: { onPhoneActiveC
     };
   }, [expandedBrandId, onPhoneActiveChange]);
 
-  // Keyboard listener for vertical navigation in modal
+  // Keyboard listener for vertical and horizontal navigation in modal
   useEffect(() => {
     if (!expandedBrandId) return;
 
@@ -312,6 +342,10 @@ export default function WorkWithBrands({ onPhoneActiveChange }: { onPhoneActiveC
         handleNextBrand();
       } else if (e.key === "ArrowUp") {
         handlePrevBrand();
+      } else if (e.key === "ArrowLeft") {
+        handlePrevVideo();
+      } else if (e.key === "ArrowRight") {
+        handleNextVideo();
       } else if (e.key === " ") {
         e.preventDefault();
         setModalIsPlaying((prev) => !prev);
@@ -320,7 +354,7 @@ export default function WorkWithBrands({ onPhoneActiveChange }: { onPhoneActiveC
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [expandedBrandId]);
+  }, [expandedBrandId, activeExpandedBrand]);
 
   // Mouse wheel listener for vertical navigation in modal
   const handleWheel = (e: React.WheelEvent) => {
@@ -481,11 +515,12 @@ export default function WorkWithBrands({ onPhoneActiveChange }: { onPhoneActiveC
                         videoRefs.current[brand.id] = el;
                       }}
                       className="w-full h-full object-cover brightness-[0.8] saturate-[1.1] transition-transform duration-700 group-hover:scale-105"
-                      src={brand.videoUrl}
+                      src={isDesktop && visibleCardIds[brand.id] ? brand.videoUrls[0] : ""}
                       loop
                       muted={!isUnmuted}
                       playsInline
-                      preload="metadata"
+                      preload={isDesktop ? "auto" : "none"}
+                      poster={brand.logoUrl}
                     />
                     {/* Shadow overlays for readability */}
                     <div className="absolute inset-x-0 top-0 h-1/4 bg-gradient-to-b from-black/75 to-transparent pointer-events-none" />
@@ -678,6 +713,46 @@ export default function WorkWithBrands({ onPhoneActiveChange }: { onPhoneActiveC
                     />
                   </div>
 
+                  {/* Instagram-style segmented progress indicators */}
+                  {activeExpandedBrand.videoUrls.length > 1 && (
+                    <div className="absolute top-10 inset-x-6 flex gap-1 z-40 select-none px-1">
+                      {activeExpandedBrand.videoUrls.map((_, i) => (
+                        <div
+                          key={i}
+                          className="h-[3px] flex-1 rounded-full overflow-hidden bg-white/20 transition-all duration-300"
+                        >
+                          <div
+                            className="h-full bg-white transition-all duration-300"
+                            style={{
+                              width: i === activeVideoIndex ? "100%" : i < activeVideoIndex ? "100%" : "0%",
+                              opacity: i === activeVideoIndex ? 1 : 0.4
+                            }}
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
+                  {/* Left / Right Chevron Tap/Click Targets */}
+                  {activeExpandedBrand.videoUrls.length > 1 && (
+                    <>
+                      <button
+                        onClick={(e) => { e.stopPropagation(); handlePrevVideo(); }}
+                        className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/40 hover:bg-black/70 border border-white/10 flex items-center justify-center text-white/80 hover:text-white backdrop-blur-sm transition-all duration-200 z-40 cursor-pointer group"
+                        aria-label="Previous Video"
+                      >
+                        <ChevronLeft size={16} className="group-hover:-translate-x-0.5 transition-transform" />
+                      </button>
+                      <button
+                        onClick={(e) => { e.stopPropagation(); handleNextVideo(); }}
+                        className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/40 hover:bg-black/70 border border-white/10 flex items-center justify-center text-white/80 hover:text-white backdrop-blur-sm transition-all duration-200 z-40 cursor-pointer group"
+                        aria-label="Next Video"
+                      >
+                        <ChevronRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
+                      </button>
+                    </>
+                  )}
+
                   {/* Looping Video with Swipe/Drag Transition */}
                   <div className="absolute inset-0 z-0 bg-neutral-950 overflow-hidden">
                     <AnimatePresence initial={false} custom={navDirection}>
@@ -688,15 +763,23 @@ export default function WorkWithBrands({ onPhoneActiveChange }: { onPhoneActiveC
                         initial="enter"
                         animate="center"
                         exit="exit"
-                        drag="y"
-                        dragConstraints={{ top: 0, bottom: 0 }}
+                        drag={true}
+                        dragConstraints={{ top: 0, bottom: 0, left: 0, right: 0 }}
                         dragElastic={0.4}
                         onDragEnd={(event, info) => {
                           const swipeThreshold = 55;
-                          if (info.offset.y < -swipeThreshold) {
-                            handleNextBrand();
-                          } else if (info.offset.y > swipeThreshold) {
-                            handlePrevBrand();
+                          if (Math.abs(info.offset.y) > Math.abs(info.offset.x)) {
+                            if (info.offset.y < -swipeThreshold) {
+                              handleNextBrand();
+                            } else if (info.offset.y > swipeThreshold) {
+                              handlePrevBrand();
+                            }
+                          } else {
+                            if (info.offset.x < -swipeThreshold) {
+                              handleNextVideo();
+                            } else if (info.offset.x > swipeThreshold) {
+                              handlePrevVideo();
+                            }
                           }
                         }}
                         className="absolute inset-0 w-full h-full cursor-grab active:cursor-grabbing"
@@ -704,7 +787,7 @@ export default function WorkWithBrands({ onPhoneActiveChange }: { onPhoneActiveC
                         <video
                           ref={modalVideoRef}
                           className="w-full h-full object-cover brightness-[0.85] saturate-[1.15] pointer-events-none"
-                          src={activeExpandedBrand.videoUrl}
+                          src={activeExpandedBrand.videoUrls[activeVideoIndex]}
                           loop
                           playsInline
                           autoPlay
