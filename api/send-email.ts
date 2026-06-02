@@ -34,7 +34,7 @@ export default async function handler(
   }
 
   const toEmail = process.env.TO_EMAIL || "contactdnahq@gmail.com"; 
-  const fromEmail = process.env.FROM_EMAIL || "contact@daniel-santos.dev"; 
+  const fromEmail = process.env.FROM_EMAIL || "contact@craftedbydna.com"; 
 
   try {
     const res = await fetch("https://api.resend.com/emails", {
