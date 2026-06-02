@@ -5,6 +5,9 @@
 export function isLowPerformanceDevice(): boolean {
   if (typeof window === "undefined") return false;
 
+  // 0. Disable on mobile/portrait tablet screens (< 768px) to maximize scroll fluidness and battery life
+  if (window.innerWidth < 768) return true;
+
   // 1. Check system reduced-motion preference
   if (window.matchMedia) {
     const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;

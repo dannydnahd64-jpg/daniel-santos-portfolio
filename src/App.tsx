@@ -108,7 +108,7 @@ export default function App() {
                   initial={{ opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.7, delay: 0.1 }}
-                  className="text-5xl md:text-7xl lg:text-8xl font-display font-black tracking-tighter uppercase leading-none text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary"
+                  className="text-4xl xs:text-5xl md:text-7xl lg:text-8xl font-display font-black tracking-tighter uppercase leading-none text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary"
                 >
                   DANIEL "DNA" SANTOS
                 </motion.h1>
