@@ -135,6 +135,27 @@ const brandsData: PhoneCardData[] = [
   }
 ];
 
+/**
+ * Injects Cloudinary optimization parameters (f_auto, q_auto, w_width) into a Cloudinary URL.
+ */
+function getOptimizedVideoUrl(url: string, width?: number): string {
+  if (!url || !url.includes("cloudinary.com")) return url;
+  
+  const target = "/video/upload/";
+  const index = url.indexOf(target);
+  if (index === -1) return url;
+  
+  const insertIndex = index + target.length;
+  const prefix = url.slice(0, insertIndex);
+  const suffix = url.slice(insertIndex);
+  
+  const params = ["f_auto", "q_auto"];
+  if (width) {
+    params.push(`w_${width}`);
+  }
+  
+  return `${prefix}${params.join(",")}/${suffix}`;
+}
 
 export default function WorkWithBrands({ onPhoneActiveChange }: { onPhoneActiveChange?: (active: boolean) => void } = {}) {
   const [unmutedCardId, setUnmutedCardId] = useState<string | null>(null);
@@ -515,7 +536,7 @@ export default function WorkWithBrands({ onPhoneActiveChange }: { onPhoneActiveC
                         videoRefs.current[brand.id] = el;
                       }}
                       className="w-full h-full object-cover brightness-[0.8] saturate-[1.1] transition-transform duration-700 group-hover:scale-105"
-                      src={isDesktop && visibleCardIds[brand.id] ? brand.videoUrls[0] : ""}
+                      src={isDesktop && visibleCardIds[brand.id] ? getOptimizedVideoUrl(brand.videoUrls[0], 480) : ""}
                       loop
                       muted={!isUnmuted}
                       playsInline
@@ -787,7 +808,7 @@ export default function WorkWithBrands({ onPhoneActiveChange }: { onPhoneActiveC
                         <video
                           ref={modalVideoRef}
                           className="w-full h-full object-cover brightness-[0.85] saturate-[1.15] pointer-events-none"
-                          src={activeExpandedBrand.videoUrls[activeVideoIndex]}
+                          src={getOptimizedVideoUrl(activeExpandedBrand.videoUrls[activeVideoIndex], 720)}
                           loop
                           playsInline
                           autoPlay
