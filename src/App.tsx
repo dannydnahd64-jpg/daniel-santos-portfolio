@@ -17,8 +17,8 @@ import ClientInquirySystem from "./components/ClientInquirySystem";
 import WorkWithBrands from "./components/WorkWithBrands";
 
 import { portfolioStats, services } from "./data";
-import dnaPfp from "../assets/dna-pfp.png";
-import dnaLogo from "../assets/dna-logo.png";
+import dnaPfp from "../assets/dna-pfp.webp";
+import dnaLogo from "../assets/dna-logo.webp";
 
 export default function App() {
   const [showScrollIcon, setShowScrollIcon] = useState(true);
