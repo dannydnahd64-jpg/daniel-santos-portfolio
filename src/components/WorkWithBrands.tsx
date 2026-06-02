@@ -479,7 +479,7 @@ export default function WorkWithBrands({ onPhoneActiveChange }: { onPhoneActiveC
                 }}
               >
                 {/* 1. Phone Frame Wrapper */}
-                <div className="relative w-full aspect-[9/16]">
+                <div className="relative w-full aspect-[9/19]">
                   {/* Subtle Glowing Trace */}
                   <div 
                     className="absolute -inset-[2px] rounded-[38px] bg-gradient-to-tr from-brand-primary via-brand-secondary to-brand-primary opacity-30 animate-border-trace pointer-events-none" 
@@ -686,7 +686,7 @@ export default function WorkWithBrands({ onPhoneActiveChange }: { onPhoneActiveC
                 animate={{ scale: 1, y: 0 }}
                 exit={{ scale: 0.9, y: 20 }}
                 transition={{ type: "spring", damping: 25, stiffness: 220 }}
-                className="relative w-full max-w-[245px] xs:max-w-[285px] md:max-w-[340px] aspect-[9/16] cursor-default flex flex-col justify-between mx-auto"
+                className="relative w-full max-w-[245px] xs:max-w-[285px] md:max-w-[340px] aspect-[9/19] cursor-default flex flex-col justify-between mx-auto"
                 onClick={(e) => e.stopPropagation()}
               >
                 {/* Symmetrical Floating Close Button */}
