@@ -102,22 +102,6 @@ const brandsData: PhoneCardData[] = [
     logoFit: "contain"
   },
   {
-    id: "evolve",
-    name: "Evolve",
-    category: "mobile application",
-    hookText: "Unlock your potential. Evolve daily.",
-    highlightWord: "Evolve daily.",
-    hookSubtext: "Unlock your potential.",
-    views: "185K",
-    accentColor: "#F59E0B", // Amber / Golden Orange
-    videoUrls: [
-      "https://res.cloudinary.com/ditgihwra/video/upload/f_auto,q_auto/v1780384124/Evolve_2_c5excv.mp4",
-      "https://res.cloudinary.com/ditgihwra/video/upload/f_auto,q_auto/v1780384128/Evolve_2_1_2_d21qg2.mp4"
-    ],
-    logoUrl: evolveLogo,
-    logoFit: "contain"
-  },
-  {
     id: "cheetercatcher",
     name: "Cheeter Catcher",
     category: "AI software",
@@ -132,6 +116,22 @@ const brandsData: PhoneCardData[] = [
     logoBg: "#fbf7f4",
     logoWidthClass: "w-11",
     logoWidthModalClass: "w-16"
+  },
+  {
+    id: "evolve",
+    name: "Evolve",
+    category: "mobile application",
+    hookText: "Unlock your potential. Evolve daily.",
+    highlightWord: "Evolve daily.",
+    hookSubtext: "Unlock your potential.",
+    views: "185K",
+    accentColor: "#F59E0B", // Amber / Golden Orange
+    videoUrls: [
+      "https://res.cloudinary.com/ditgihwra/video/upload/f_auto,q_auto/v1780384124/Evolve_2_c5excv.mp4",
+      "https://res.cloudinary.com/ditgihwra/video/upload/f_auto,q_auto/v1780384128/Evolve_2_1_2_d21qg2.mp4"
+    ],
+    logoUrl: evolveLogo,
+    logoFit: "contain"
   }
 ];
 
