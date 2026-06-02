@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence, MotionConfig } from "motion/react";
+import { isLowPerformanceDevice } from "./utils/performance";
 import {
   Compass,
   Film,
@@ -25,6 +26,13 @@ export default function App() {
   const [showScrollIcon, setShowScrollIcon] = useState(true);
   const [isScrolled, setIsScrolled] = useState(false);
   const [hideNavbar, setHideNavbar] = useState(false);
+  const [reducedMotion, setReducedMotion] = useState(false);
+
+  useEffect(() => {
+    if (isLowPerformanceDevice()) {
+      setReducedMotion(true);
+    }
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,7 +49,8 @@ export default function App() {
   }, []);
 
   return (
-    <div className="relative min-h-screen bg-[#07080a] text-neutral-100 selection:bg-brand-primary selection:text-white">
+    <MotionConfig reducedMotion={reducedMotion ? "always" : "user"}>
+      <div className="relative min-h-screen bg-[#07080a] text-neutral-100 selection:bg-brand-primary selection:text-white">
 
       {/* Dynamic 3D DNA Particle Lattice background */}
       <DnaLattice />
@@ -63,7 +72,7 @@ export default function App() {
           <a href="#" className="flex items-center group select-none">
             <div className={`relative flex items-center justify-center transition-all duration-300 ${isScrolled ? "h-12" : "h-16"
               }`}>
-              <img src={dnaLogo} alt="DNA Logo" className="h-full w-auto object-contain filter drop-shadow-[0_0_8px_rgba(0,223,162,0.15)] group-hover:drop-shadow-[0_0_12px_rgba(0,223,162,0.35)] transition-all duration-300" />
+              <img src={dnaLogo} alt="Daniel Santos (DNA) Logo - UGC Creator & Creative Director" className="h-full w-auto object-contain filter drop-shadow-[0_0_8px_rgba(0,223,162,0.15)] group-hover:drop-shadow-[0_0_12px_rgba(0,223,162,0.35)] transition-all duration-300" />
             </div>
           </a>
 
@@ -542,6 +551,7 @@ export default function App() {
           </p>
         </div>
       </footer>
-    </div>
+      </div>
+    </MotionConfig>
   );
 }

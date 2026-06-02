@@ -1,4 +1,5 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { isLowPerformanceDevice } from "../utils/performance";
 
 interface Node3D {
   baseX: number;
@@ -9,10 +10,16 @@ interface Node3D {
 }
 
 export default function DnaLattice() {
+  const [disabled, setDisabled] = useState(false);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
+    if (isLowPerformanceDevice()) {
+      setDisabled(true);
+      return;
+    }
+
     const canvas = canvasRef.current;
     const container = containerRef.current;
     if (!canvas || !container) return;
@@ -357,6 +364,8 @@ export default function DnaLattice() {
       window.removeEventListener("scroll", handleScrollEvent);
     };
   }, []);
+
+  if (disabled) return null;
 
   return (
     <div
