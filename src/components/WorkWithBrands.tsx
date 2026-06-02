@@ -65,7 +65,7 @@ const brandsData: PhoneCardData[] = [
     hookSubtext: "Tiny habitats.",
     views: "89K",
     accentColor: "#10B981", // Emerald/Green
-    videoUrls: ["https://res.cloudinary.com/ditgihwra/video/upload/v1780384158/TinyNature_3_pc3wkp.mp4"],
+    videoUrls: ["https://res.cloudinary.com/ditgihwra/video/upload/f_auto,q_auto/v1780384158/TinyNature_3_pc3wkp.mp4"],
     logoUrl: tinynatureLogo,
     logoFit: "cover"
   },
@@ -79,11 +79,11 @@ const brandsData: PhoneCardData[] = [
     views: "125K",
     accentColor: "#00E5FF", // Cyan
     videoUrls: [
-      "https://res.cloudinary.com/ditgihwra/video/upload/v1780384593/Simpletics_2_3_khnc2h.mp4",
-      "https://res.cloudinary.com/ditgihwra/video/upload/v1780383566/Copy_Of_11_zb0bel.mp4",
-      "https://res.cloudinary.com/ditgihwra/video/upload/v1780383705/Copy_Of_15_vo1ntd.mp4",
-      "https://res.cloudinary.com/ditgihwra/video/upload/v1780383710/Copy_Of_16_x5ezff.mp4",
-      "https://res.cloudinary.com/ditgihwra/video/upload/v1780384233/Simpletics1_umzhpf.mp4"
+      "https://res.cloudinary.com/ditgihwra/video/upload/f_auto,q_auto/v1780384593/Simpletics_2_3_khnc2h.mp4",
+      "https://res.cloudinary.com/ditgihwra/video/upload/f_auto,q_auto/v1780383566/Copy_Of_11_zb0bel.mp4",
+      "https://res.cloudinary.com/ditgihwra/video/upload/f_auto,q_auto/v1780383705/Copy_Of_15_vo1ntd.mp4",
+      "https://res.cloudinary.com/ditgihwra/video/upload/f_auto,q_auto/v1780383710/Copy_Of_16_x5ezff.mp4",
+      "https://res.cloudinary.com/ditgihwra/video/upload/f_auto,q_auto/v1780384233/Simpletics1_umzhpf.mp4"
     ],
     logoUrl: simpleticsLogo,
     logoFit: "contain"
@@ -97,7 +97,7 @@ const brandsData: PhoneCardData[] = [
     hookSubtext: "Generate brainrot clips.",
     views: "340K",
     accentColor: "#EF4444", // Red / Coral / Pink
-    videoUrls: ["https://res.cloudinary.com/ditgihwra/video/upload/v1780384149/Brainrot_3_zortsc.mp4"],
+    videoUrls: ["https://res.cloudinary.com/ditgihwra/video/upload/f_auto,q_auto/v1780384149/Brainrot_3_zortsc.mp4"],
     logoUrl: brainrotLogo,
     logoFit: "contain"
   },
@@ -111,8 +111,8 @@ const brandsData: PhoneCardData[] = [
     views: "185K",
     accentColor: "#F59E0B", // Amber / Golden Orange
     videoUrls: [
-      "https://res.cloudinary.com/ditgihwra/video/upload/v1780384124/Evolve_2_c5excv.mp4",
-      "https://res.cloudinary.com/ditgihwra/video/upload/v1780384128/Evolve_2_1_2_d21qg2.mp4"
+      "https://res.cloudinary.com/ditgihwra/video/upload/f_auto,q_auto/v1780384124/Evolve_2_c5excv.mp4",
+      "https://res.cloudinary.com/ditgihwra/video/upload/f_auto,q_auto/v1780384128/Evolve_2_1_2_d21qg2.mp4"
     ],
     logoUrl: evolveLogo,
     logoFit: "contain"
@@ -126,7 +126,7 @@ const brandsData: PhoneCardData[] = [
     hookSubtext: "cheet.",
     views: "44K",
     accentColor: "#3B82F6", // Blue
-    videoUrls: ["https://res.cloudinary.com/ditgihwra/video/upload/v1780384154/Cheater_Catcher_2_hirxgn.mp4"],
+    videoUrls: ["https://res.cloudinary.com/ditgihwra/video/upload/f_auto,q_auto/v1780384154/Cheater_Catcher_2_hirxgn.mp4"],
     logoUrl: cheeterLogo,
     logoFit: "contain",
     logoBg: "#fbf7f4",
@@ -135,27 +135,6 @@ const brandsData: PhoneCardData[] = [
   }
 ];
 
-/**
- * Injects Cloudinary optimization parameters (f_auto, q_auto, w_width) into a Cloudinary URL.
- */
-function getOptimizedVideoUrl(url: string, width?: number): string {
-  if (!url || !url.includes("cloudinary.com")) return url;
-  
-  const target = "/video/upload/";
-  const index = url.indexOf(target);
-  if (index === -1) return url;
-  
-  const insertIndex = index + target.length;
-  const prefix = url.slice(0, insertIndex);
-  const suffix = url.slice(insertIndex);
-  
-  const params = ["f_auto", "q_auto"];
-  if (width) {
-    params.push(`w_${width}`);
-  }
-  
-  return `${prefix}${params.join(",")}/${suffix}`;
-}
 
 export default function WorkWithBrands({ onPhoneActiveChange }: { onPhoneActiveChange?: (active: boolean) => void } = {}) {
   const [unmutedCardId, setUnmutedCardId] = useState<string | null>(null);
@@ -500,7 +479,7 @@ export default function WorkWithBrands({ onPhoneActiveChange }: { onPhoneActiveC
                 }}
               >
                 {/* 1. Phone Frame Wrapper */}
-                <div className="relative w-full aspect-[9/19]">
+                <div className="relative w-full aspect-[9/16]">
                   {/* Subtle Glowing Trace */}
                   <div 
                     className="absolute -inset-[2px] rounded-[38px] bg-gradient-to-tr from-brand-primary via-brand-secondary to-brand-primary opacity-30 animate-border-trace pointer-events-none" 
@@ -536,7 +515,7 @@ export default function WorkWithBrands({ onPhoneActiveChange }: { onPhoneActiveC
                         videoRefs.current[brand.id] = el;
                       }}
                       className="w-full h-full object-cover brightness-[0.8] saturate-[1.1] transition-transform duration-700 group-hover:scale-105"
-                      src={isDesktop && visibleCardIds[brand.id] ? getOptimizedVideoUrl(brand.videoUrls[0], 480) : ""}
+                      src={isDesktop && visibleCardIds[brand.id] ? brand.videoUrls[0] : ""}
                       loop
                       muted={!isUnmuted}
                       playsInline
@@ -707,7 +686,7 @@ export default function WorkWithBrands({ onPhoneActiveChange }: { onPhoneActiveC
                 animate={{ scale: 1, y: 0 }}
                 exit={{ scale: 0.9, y: 20 }}
                 transition={{ type: "spring", damping: 25, stiffness: 220 }}
-                className="relative w-full max-w-[245px] xs:max-w-[285px] md:max-w-[340px] aspect-[9/19] cursor-default flex flex-col justify-between mx-auto"
+                className="relative w-full max-w-[245px] xs:max-w-[285px] md:max-w-[340px] aspect-[9/16] cursor-default flex flex-col justify-between mx-auto"
                 onClick={(e) => e.stopPropagation()}
               >
                 {/* Symmetrical Floating Close Button */}
@@ -808,7 +787,7 @@ export default function WorkWithBrands({ onPhoneActiveChange }: { onPhoneActiveC
                         <video
                           ref={modalVideoRef}
                           className="w-full h-full object-cover brightness-[0.85] saturate-[1.15] pointer-events-none"
-                          src={getOptimizedVideoUrl(activeExpandedBrand.videoUrls[activeVideoIndex], 720)}
+                          src={activeExpandedBrand.videoUrls[activeVideoIndex]}
                           loop
                           playsInline
                           autoPlay
